@@ -10,7 +10,7 @@ const string StanfordDependencyRelation::stanfordDependencyTypes[49] = {"acomp",
                                                         "pobj", "poss", "possessive", "preconj", "predet", "prep", "prepc", "prt", "punct", "quantmod", "rcmod", "ref",
                                                         "root", "tmod", "vmod", "xcomp", "xsubj"};
 
-const StanfordDependencyType stanfordDependencyTags[49] = {StanfordDependencyType::ACOMP, StanfordDependencyType::ADVCL,
+const StanfordDependencyType StanfordDependencyRelation::stanfordDependencyTags[49] = {StanfordDependencyType::ACOMP, StanfordDependencyType::ADVCL,
                                                            StanfordDependencyType::ADVMOD, StanfordDependencyType::AGENT, StanfordDependencyType::AMOD, StanfordDependencyType::APPOS, StanfordDependencyType::AUX,
                                                            StanfordDependencyType::AUXPASS, StanfordDependencyType::CC, StanfordDependencyType::CCOMP, StanfordDependencyType::CONJ, StanfordDependencyType::COP,
                                                            StanfordDependencyType::CSUBJ, StanfordDependencyType::CSUBJPASS, StanfordDependencyType::DEP, StanfordDependencyType::DET, StanfordDependencyType::DISCOURSE,

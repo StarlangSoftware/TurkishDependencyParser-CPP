@@ -18,6 +18,7 @@ TurkishDependencyTreeBankCorpus::TurkishDependencyTreeBankCorpus(string fileName
     XmlElement* sentenceNode = rootNode->getFirstChild();
     while (sentenceNode != nullptr){
         sentence = new TurkishDependencyTreeBankSentence(sentenceNode);
+        addSentence(sentence);
         sentenceNode = sentenceNode->getNextSibling();
     }
 }

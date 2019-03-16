@@ -16,7 +16,7 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
         if (!wordNode->getAttributeValue("REL").empty()){
             relationName = wordNode->getAttributeValue("REL");
             if (relationName != "[,( )]"){
-                vector<string> relationParts = Word::split(relationName, "[]()");
+                vector<string> relationParts = Word::split(relationName, ",[]()");
                 index = 0;
                 for (int i = 0; i < relationParts.size(); i++){
                     if (!relationParts.at(i).empty()){
