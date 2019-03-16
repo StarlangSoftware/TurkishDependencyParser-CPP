@@ -11,6 +11,7 @@ protected:
     int toWord;
     explicit DependencyRelation(int toWord);
 public:
+    DependencyRelation() = default;
     int to();
 };
 

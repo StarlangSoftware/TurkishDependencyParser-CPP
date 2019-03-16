@@ -19,6 +19,7 @@ public:
     static const string turkishDependencyTypes[23];
     static const TurkishDependencyType turkishDependencyTags[23];
     static TurkishDependencyType getDependencyTag(string tag);
+    TurkishDependencyRelation() = default;
     TurkishDependencyRelation(int toWord, int toIG, string dependencyType);
     int getToIG();
     TurkishDependencyType getTurkishDependencyType();
