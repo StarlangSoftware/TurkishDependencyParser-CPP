@@ -35,3 +35,6 @@ StanfordDependencyRelation::StanfordDependencyRelation(int toWord, string depend
     this->stanfordDependencyType = getDependencyTag(dependencyType);
 }
 
+string StanfordDependencyRelation::to_string(){
+    return StanfordDependencyRelation::stanfordDependencyTypes[static_cast<int>(stanfordDependencyType)];
+}

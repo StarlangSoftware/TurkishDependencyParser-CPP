@@ -33,3 +33,7 @@ UniversalDependencyType UniversalDependencyRelation::getDependencyTag(string tag
         }
     }
 }
+
+string UniversalDependencyRelation::to_string(){
+    return UniversalDependencyRelation::universalDependencyTypes[static_cast<int>(universalDependencyType)];
+}

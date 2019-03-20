@@ -21,6 +21,7 @@ public:
     explicit UniversalDependencyRelation(int toWord);
     static UniversalDependencyType getDependencyTag(string tag);
     UniversalDependencyRelation(int toWord, string dependencyType);
+    string to_string();
 };
 
 

@@ -23,6 +23,7 @@ public:
     TurkishDependencyRelation(int toWord, int toIG, string dependencyType);
     int getToIG();
     TurkishDependencyType getTurkishDependencyType();
+    string to_string();
 };
 
 

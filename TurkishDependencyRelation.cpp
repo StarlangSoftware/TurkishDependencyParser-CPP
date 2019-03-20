@@ -36,3 +36,7 @@ int TurkishDependencyRelation::getToIG(){
 TurkishDependencyType TurkishDependencyRelation::getTurkishDependencyType(){
     return turkishDependencyType;
 }
+
+string TurkishDependencyRelation::to_string() {
+    return TurkishDependencyRelation::turkishDependencyTypes[static_cast<int>(turkishDependencyType)];
+}
