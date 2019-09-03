@@ -4,6 +4,11 @@
 
 #include "TurkishDependencyTreeBankWord.h"
 
+/**
+ * Given the parsed xml node which contains information about a word and related attributes including the
+ * dependencies, the method constructs a {@link TurkishDependencyTreeBankWord} from it.
+ * @param wordNode Xml parsed node containing information about a word.
+ */
 TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNode) {
     string IG, relationName, dependencyType;
     int i, index, toWord = 0, toIG = 0;
@@ -48,6 +53,11 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
     }
 }
 
+/**
+ * Given the morphological parse of a word, this method splits it into inflectional groups.
+ * @param IG Morphological parse of the word in string form.
+ * @return An array of inflectional groups stored as strings.
+ */
 vector<string> TurkishDependencyTreeBankWord::splitIntoInflectionalGroups(string IG) {
     vector<string> inflectionalGroups;
     IG = Word::replaceAll(IG, "(+Punc", "@");
@@ -64,18 +74,35 @@ vector<string> TurkishDependencyTreeBankWord::splitIntoInflectionalGroups(string
     return inflectionalGroups;
 }
 
+/**
+ * Accessor for the parse attribute
+ * @return Parse attribute
+ */
 MorphologicalParse TurkishDependencyTreeBankWord::getParse() {
     return parse;
 }
 
+/**
+ * Accessor for a specific parse.
+ * @param index Index of the word.
+ * @return Parse of the index'th word
+ */
 MorphologicalParse TurkishDependencyTreeBankWord::getOriginalParse(int index) {
     return originalParses.at(index);
 }
 
+/**
+ * Number of words in this item.
+ * @return Number of words in this item.
+ */
 int TurkishDependencyTreeBankWord::size() {
     return originalParses.size();
 }
 
+/**
+ * Accessor for the relation attribute.
+ * @return relation attribute.
+ */
 TurkishDependencyRelation TurkishDependencyTreeBankWord::getRelation() {
     return relation;
 }

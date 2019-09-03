@@ -16,6 +16,13 @@ const TurkishDependencyType TurkishDependencyRelation::turkishDependencyTags[23]
                                                                                     TurkishDependencyType::INSTRUMENTAL_ADJUNCT, TurkishDependencyType::RELATIVIZER, TurkishDependencyType::NEGATIVE_PARTICLE, TurkishDependencyType::ETOL, TurkishDependencyType::COLLOCATION,
                                                                                     TurkishDependencyType::FOCUS_PARTICLE, TurkishDependencyType::EQU_ADJUNCT, TurkishDependencyType::APPOSITION};
 
+/**
+ * The getDependencyTag method takes an dependency tag as string and returns the {@link TurkishDependencyType}
+ * form of it.
+ *
+ * @param tag  Type of the dependency tag in string form
+ * @return Type of the dependency in {@link TurkishDependencyType} form
+ */
 TurkishDependencyType TurkishDependencyRelation::getDependencyTag(string tag) {
     for (int j = 0; j < 23; j++) {
         if (tag == TurkishDependencyRelation::turkishDependencyTypes[j]) {
@@ -24,15 +31,30 @@ TurkishDependencyType TurkishDependencyRelation::getDependencyTag(string tag) {
     }
 }
 
+/**
+ * Another constructor for TurkishDependencyRelation. Gets input toWord, toIG, and dependencyType as arguments and
+ * calls the super class's constructor and sets the IG and dependency type.
+ * @param toWord Index of the word in the sentence that dependency relation is related
+ * @param toIG Index of the inflectional group the dependency relation is related
+ * @param dependencyType Type of the dependency relation in string form
+ */
 TurkishDependencyRelation::TurkishDependencyRelation(int toWord, int toIG, string dependencyType) : DependencyRelation(toWord){
     this->toIG = toIG;
     this->turkishDependencyType = getDependencyTag(move(dependencyType));
 }
 
+/**
+ * Accessor for the toIG attribute
+ * @return toIG attribute
+ */
 int TurkishDependencyRelation::getToIG(){
     return toIG;
 }
 
+/**
+ * Accessor for the turkishDependencyType attribute
+ * @return turkishDependencyType attribute
+ */
 TurkishDependencyType TurkishDependencyRelation::getTurkishDependencyType(){
     return turkishDependencyType;
 }

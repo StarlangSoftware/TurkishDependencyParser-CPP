@@ -22,6 +22,13 @@ const StanfordDependencyType StanfordDependencyRelation::stanfordDependencyTags[
                                                            StanfordDependencyType::RCMOD, StanfordDependencyType::REF, StanfordDependencyType::ROOT, StanfordDependencyType::TMOD, StanfordDependencyType::VMOD,
                                                            StanfordDependencyType::XCOMP, StanfordDependencyType::XSUBJ};
 
+/**
+ * The getDependencyTag method takes an dependency tag as string and returns the {@link StanfordDependencyType}
+ * form of it.
+ *
+ * @param tag  Type of the dependency tag in string form
+ * @return Type of the dependency in {@link StanfordDependencyType} form
+ */
 StanfordDependencyType StanfordDependencyRelation::getDependencyTag(string tag) {
     for (int j = 0; j < 49; j++) {
         if (tag == StanfordDependencyRelation::stanfordDependencyTypes[j]) {
@@ -31,6 +38,12 @@ StanfordDependencyType StanfordDependencyRelation::getDependencyTag(string tag) 
     return StanfordDependencyType::XSUBJ;
 }
 
+/**
+ * Another constructor for StanfordDependencyRelation. Gets input toWord and dependencyType as arguments and
+ * calls the super class's constructor and sets the dependency type.
+ * @param toWord Index of the word in the sentence that dependency relation is related
+ * @param dependencyType Type of the dependency relation in string form
+ */
 StanfordDependencyRelation::StanfordDependencyRelation(int toWord, string dependencyType) : DependencyRelation(toWord){
     this->stanfordDependencyType = getDependencyTag(dependencyType);
 }

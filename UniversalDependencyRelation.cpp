@@ -19,13 +19,30 @@ const UniversalDependencyType UniversalDependencyRelation::universalDependencyTa
                                                                                           UniversalDependencyType::PARATAXIS, UniversalDependencyType::PUNCT, UniversalDependencyType::REPARANDUM, UniversalDependencyType::ROOT,
                                                                                           UniversalDependencyType::VOCATIVE, UniversalDependencyType::XCOMP};
 
+/**
+ * Overriden Universal Dependency Relation constructor. Gets toWord as input and calls it super class's constructor
+ * @param toWord Index of the word in the sentence that dependency relation is related
+ */
 UniversalDependencyRelation::UniversalDependencyRelation(int toWord) : DependencyRelation(toWord) {
 }
 
+/**
+ * Another constructor for UniversalDependencyRelation. Gets input toWord and dependencyType as arguments and
+ * calls the super class's constructor and sets the dependency type.
+ * @param toWord Index of the word in the sentence that dependency relation is related
+ * @param dependencyType Type of the dependency relation in string form
+ */
 UniversalDependencyRelation::UniversalDependencyRelation(int toWord, string dependencyType) : DependencyRelation(toWord){
     this->universalDependencyType = getDependencyTag(move(dependencyType));
 }
 
+/**
+ * The getDependencyTag method takes an dependency tag as string and returns the {@link UniversalDependencyType}
+ * form of it.
+ *
+ * @param tag  Type of the dependency tag in string form
+ * @return Type of the dependency in {@link UniversalDependencyType} form
+ */
 UniversalDependencyType UniversalDependencyRelation::getDependencyTag(string tag) {
     for (int j = 0; j < 37; j++) {
         if (tag == UniversalDependencyRelation::universalDependencyTypes[j]) {

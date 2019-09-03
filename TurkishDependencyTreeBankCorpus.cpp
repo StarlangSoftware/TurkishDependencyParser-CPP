@@ -6,10 +6,19 @@
 #include "XmlDocument.h"
 #include "TurkishDependencyTreeBankSentence.h"
 
+/**
+ * Constructor to create an empty copy of this corpus.
+ * @return An empty copy of this corpus.
+ */
 TurkishDependencyTreeBankCorpus TurkishDependencyTreeBankCorpus::emptyCopy() {
     return TurkishDependencyTreeBankCorpus();
 }
 
+/**
+ * Another constructor for {@link TurkishDependencyTreeBankCorpus}. The method gets the corpus as an xml file, and
+ * reads sentences one by one. For each sentence, the function constructs a TurkishDependencyTreeBankSentence.
+ * @param fileName Input file name to read the TurkishDependencyTreeBankCorpus.
+ */
 TurkishDependencyTreeBankCorpus::TurkishDependencyTreeBankCorpus(string fileName) : Corpus() {
     XmlDocument doc = XmlDocument(move(fileName));
     TurkishDependencyTreeBankSentence* sentence;
