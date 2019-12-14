@@ -45,9 +45,7 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
         for (i = 1; i <= 9; i++){
             if (!wordNode->getAttributeValue("ORG_IG" + std::to_string(i)).empty()){
                 IG = wordNode->getAttributeValue("ORG_IG" + std::to_string(i));
-                if (i == 1){
-                    originalParses.emplace_back(MorphologicalParse(splitIntoInflectionalGroups(IG)));
-                }
+                originalParses.emplace_back(MorphologicalParse(splitIntoInflectionalGroups(IG)));
             }
         }
     }
