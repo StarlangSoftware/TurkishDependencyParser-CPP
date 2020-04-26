@@ -4,8 +4,7 @@ This tool is used for Dependency Parsing of Turkish sentences: it breaks down se
 
 For Developers
 ============
-You can also see either [Python](https://github.com/olcaytaner/TurkishDependencyParser-Py) 
-or [Java](https://github.com/olcaytaner/TurkishDependencyParser) repository.
+You can also see either [Java](https://github.com/olcaytaner/TurkishDependencyParser), [Python](https://github.com/olcaytaner/TurkishDependencyParser-Py), or [C#](https://github.com/olcaytaner/TurkishDependencyParser-CS) repository.
 
 ## Requirements
 
