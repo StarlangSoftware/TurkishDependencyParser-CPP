@@ -4,7 +4,7 @@ This tool is used for Dependency Parsing of Turkish sentences: it breaks down se
 
 For Developers
 ============
-You can also see either [Java](https://github.com/olcaytaner/TurkishDependencyParser), [Python](https://github.com/olcaytaner/TurkishDependencyParser-Py), or [C#](https://github.com/olcaytaner/TurkishDependencyParser-CS) repository.
+You can also see either [Java](https://github.com/starlangsoftware/TurkishDependencyParser), [Python](https://github.com/starlangsoftware/TurkishDependencyParser-Py), or [C#](https://github.com/starlangsoftware/TurkishDependencyParser-CS) repository.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 A directory called TurkishDependencyParser-CPP will be created. Or you can use below link for exploring the code:
 
-	git clone https://github.com/olcaytaner/TurkishDependencyParser-CPP.git
+	git clone https://github.com/starlangsoftware/TurkishDependencyParser-CPP.git
 
 ## Open project with CLion IDE
 
