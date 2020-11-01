@@ -30,6 +30,7 @@ public:
     int charCount();
     void replaceWord(int i, Word* newWord);
     bool safeIndex(int index);
+
     string to_string();
     string toWords();
     void writeToFile(ofstream file);
