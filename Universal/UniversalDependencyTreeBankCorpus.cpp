@@ -27,7 +27,10 @@ UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(string file
     while (inputStream.good()){
         getline(inputStream, line);
         if (line.empty()){
-            addSentence(sentence);
+            if (sentence != nullptr){
+                addSentence(sentence);
+            }
+            sentence = nullptr;
         } else {
             if (Word::startsWith(line, "#")){
                 if (sentence == nullptr){
