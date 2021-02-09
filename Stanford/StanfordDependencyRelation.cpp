@@ -30,6 +30,7 @@ const StanfordDependencyType StanfordDependencyRelation::stanfordDependencyTags[
  * @return Type of the dependency in {@link StanfordDependencyType} form
  */
 StanfordDependencyType StanfordDependencyRelation::getDependencyTag(string tag) {
+    std::transform(tag.begin(), tag.end(), tag.begin(), [](unsigned char c){ return std::tolower(c); });
     for (int j = 0; j < 49; j++) {
         if (tag == StanfordDependencyRelation::stanfordDependencyTypes[j]) {
             return StanfordDependencyRelation::stanfordDependencyTags[j];
