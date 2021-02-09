@@ -98,3 +98,16 @@ cmake-build-debug/CMakeFiles/TestDependencyParser.dir/Universal/UniversalDepende
 cmake-build-debug/CMakeFiles/TestDependencyParser.dir/Universal/UniversalDependencyTreeBankFeatures.cpp.o
 cmake-build-debug/CMakeFiles/TestDependencyParser.dir/Universal/UniversalDependencyTreeBankSentence.cpp.o
 cmake-build-debug/CMakeFiles/TestDependencyParser.dir/Universal/UniversalDependencyTreeBankWord.cpp.o
+/cmake-build-debug/CMakeFiles/Test.dir/Test/
+cmake-build-debug/CMakeFiles/Test.dir/CXX.includecache
+cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake
+cmake-build-debug/CMakeFiles/Test.dir/Stanford/StanfordDependencyRelation.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Turkish/TurkishDependencyRelation.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Universal/UniversalDependencyRelation.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/build.make
+cmake-build-debug/CMakeFiles/Test.dir/cmake_clean.cmake
+cmake-build-debug/CMakeFiles/Test.dir/depend.internal
+cmake-build-debug/CMakeFiles/Test.dir/depend.make
+cmake-build-debug/CMakeFiles/Test.dir/link.txt
+cmake-build-debug/CMakeFiles/Test.dir/progress.make
+cmake-build-debug/Test
