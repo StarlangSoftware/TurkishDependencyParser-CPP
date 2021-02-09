@@ -57,3 +57,15 @@ Result: The imported project is listed in the Project Explorer view and files ar
 **From IDE**
 
 After being done with the downloading and opening project, select **Build Project** option from **Build** menu. After compilation process, user can run TestDependencyParser.cpp .
+
+# Cite
+
+	@INPROCEEDINGS{9259799,
+  	author={A. {Kuzgun} and N. {Cesur} and B. N. {Arıcan} and M. {Özçelik} and B. {Marşan} and N. {Kara} and D. B. {Aslan} and O. T. {Yıldız}},
+  	booktitle={2020 Innovations in Intelligent Systems and Applications Conference (ASYU)}, 
+  	title={On Building the Largest and Cross-Linguistic Turkish Dependency Corpus}, 
+  	year={2020},
+  	volume={},
+  	number={},
+  	pages={1-6},
+  	doi={10.1109/ASYU50717.2020.9259799}}
