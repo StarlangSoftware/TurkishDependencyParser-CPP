@@ -5,12 +5,22 @@
 #include "UniversalDependencyRelation.h"
 #include "UniversalDependencyPosType.h"
 
-const string UniversalDependencyRelation::universalDependencyTypes[37] = {"acl", "advcl", "advmod", "amod", "appos", "aux",
-                                                                         "case", "cc", "ccomp", "clf", "compound", "conj", "cop", "csubj", "dep", "det", "discourse", "dislocated",
-                                                                         "expl", "fixed", "flat", "goeswith", "iobj", "list", "mark", "nmod", "nsubj", "nummod", "obj", "obl", "orphan",
-                                                                         "parataxis", "punct", "reparandum", "root", "vocative", "xcomp"};
+const string UniversalDependencyRelation::universalDependencyTypes[58] = {"acl", "advcl",
+                                                                          "advmod", "amod", "appos", "aux", "case",
+                                                                          "cc", "ccomp", "clf", "compound", "conj",
+                                                                          "cop", "csubj", "dep", "det", "discourse",
+                                                                          "dislocated", "expl", "fixed", "flat",
+                                                                          "goeswith", "iobj", "list", "mark", "nmod",
+                                                                          "nsubj", "nummod", "obj", "obl", "orphan",
+                                                                          "parataxis", "punct", "reparandum", "root",
+                                                                          "vocative", "xcomp", "acl:relcl", "aux:pass",
+                                                                          "cc:preconj", "compound:prt", "det:predet", "flat:foreign",
+                                                                          "nsubj:pass", "csubj:pass", "nmod:npmod", "nmod:poss",
+                                                                          "nmod:tmod", "avdmod:emph", "aux:q", "compound:lvc",
+                                                                          "compound:redup", "csubj:cop", "nmod:comp", "nmod:part",
+                                                                          "nsubj:cop", "obl:agent", "obl:tmod"};
 
-const UniversalDependencyType UniversalDependencyRelation::universalDependencyTags[37] = {UniversalDependencyType::ACL, UniversalDependencyType::ADVCL,
+const UniversalDependencyType UniversalDependencyRelation::universalDependencyTags[58] = {UniversalDependencyType::ACL, UniversalDependencyType::ADVCL,
                                                                                           UniversalDependencyType::ADVMOD, UniversalDependencyType::AMOD, UniversalDependencyType::APPOS, UniversalDependencyType::AUX, UniversalDependencyType::CASE,
                                                                                           UniversalDependencyType::CC, UniversalDependencyType::CCOMP, UniversalDependencyType::CLF, UniversalDependencyType::COMPOUND, UniversalDependencyType::CONJ,
                                                                                           UniversalDependencyType::COP, UniversalDependencyType::CSUBJ, UniversalDependencyType::DEP, UniversalDependencyType::DET, UniversalDependencyType::DISCOURSE,
@@ -18,7 +28,12 @@ const UniversalDependencyType UniversalDependencyRelation::universalDependencyTa
                                                                                           UniversalDependencyType::GOESWITH, UniversalDependencyType::IOBJ, UniversalDependencyType::LIST, UniversalDependencyType::MARK, UniversalDependencyType::NMOD,
                                                                                           UniversalDependencyType::NSUBJ, UniversalDependencyType::NUMMOD, UniversalDependencyType::OBJ, UniversalDependencyType::OBL, UniversalDependencyType::ORPHAN,
                                                                                           UniversalDependencyType::PARATAXIS, UniversalDependencyType::PUNCT, UniversalDependencyType::REPARANDUM, UniversalDependencyType::ROOT,
-                                                                                          UniversalDependencyType::VOCATIVE, UniversalDependencyType::XCOMP};
+                                                                                          UniversalDependencyType::VOCATIVE, UniversalDependencyType::XCOMP, UniversalDependencyType::ACL_RELCL, UniversalDependencyType::AUX_PASS,
+                                                                                          UniversalDependencyType::CC_PRECONJ, UniversalDependencyType::COMPOUND_PRT, UniversalDependencyType::DET_PREDET, UniversalDependencyType::FLAT_FOREIGN,
+                                                                                          UniversalDependencyType::NSUBJ_PASS, UniversalDependencyType::CSUBJ_PASS, UniversalDependencyType::NMOD_NPMOD, UniversalDependencyType::NMOD_POSS,
+                                                                                          UniversalDependencyType::NMOD_TMOD, UniversalDependencyType::ADVMOD_EMPH, UniversalDependencyType::AUX_Q, UniversalDependencyType::COMPOUND_LVC,
+                                                                                          UniversalDependencyType::COMPOUND_REDUP, UniversalDependencyType::CSUBJ_COP, UniversalDependencyType::NMOD_COMP, UniversalDependencyType::NMOD_PART,
+                                                                                          UniversalDependencyType::NSUBJ_COP, UniversalDependencyType::OBL_AGENT, UniversalDependencyType::OBL_TMOD};
 
 const string UniversalDependencyRelation::universalDependencyPosTypes[17] = {"ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB", "ADP", "AUX", "CCONJ",
                                                             "DET", "NUM", "PART", "PRON", "SCONJ", "PUNCT", "SYM", "X"};

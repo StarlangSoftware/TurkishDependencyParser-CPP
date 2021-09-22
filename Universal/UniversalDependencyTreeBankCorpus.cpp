@@ -53,9 +53,6 @@ UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(string file
                             int to = stoi(items[6]);
                             string dependencyType = items[7];
                             std::for_each(dependencyType.begin(), dependencyType.end(), to_upper);
-                            if (dependencyType.find_first_of(':') != -1){
-                                dependencyType = dependencyType.substr(0, dependencyType.find_first_of(':') - 1);
-                            }
                             relation = new UniversalDependencyRelation(to, dependencyType);
                         } else {
                             relation = nullptr;
