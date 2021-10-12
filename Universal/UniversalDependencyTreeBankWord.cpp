@@ -67,3 +67,7 @@ UniversalDependencyTreeBankWord::~UniversalDependencyTreeBankWord() {
     delete features;
     delete relation;
 }
+
+bool UniversalDependencyTreeBankWord::featureExists(string featureName) {
+    return features->featureExists(featureName);
+}

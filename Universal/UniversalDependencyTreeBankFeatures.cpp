@@ -40,3 +40,7 @@ string UniversalDependencyTreeBankFeatures::to_string() {
     }
     return result;
 }
+
+bool UniversalDependencyTreeBankFeatures::featureExists(const string& feature) {
+    return featureList.find(feature) != featureList.end();
+}

@@ -17,6 +17,7 @@ private:
 public:
     explicit UniversalDependencyTreeBankFeatures(string features);
     string getFeatureValue(const string& feature);
+    bool featureExists(const string& feature);
     string to_string();
 };
 

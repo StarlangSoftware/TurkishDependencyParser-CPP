@@ -32,6 +32,7 @@ public:
     string getXpos();
     UniversalDependencyTreeBankFeatures* getFeatures();
     string getFeatureValue(string featureName);
+    bool featureExists(string featureName);
     UniversalDependencyRelation* getRelation();
     string getDeps();
     string getMisc();
