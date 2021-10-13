@@ -120,3 +120,11 @@ cmake-build-debug/CMakeFiles/3.20.2/CompilerIdC/CMakeCCompilerId.c
 cmake-build-debug/CMakeFiles/3.20.2/CompilerIdC/a.out
 cmake-build-debug/CMakeFiles/3.20.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
 cmake-build-debug/CMakeFiles/3.20.2/CompilerIdCXX/a.out
+cmake-build-debug/CMakeFiles/Test.dir/DependencyRelation.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Turkish/TurkishDependencyTreeBankCorpus.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Turkish/TurkishDependencyTreeBankSentence.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Turkish/TurkishDependencyTreeBankWord.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Universal/UniversalDependencyTreeBankCorpus.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Universal/UniversalDependencyTreeBankFeatures.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Universal/UniversalDependencyTreeBankSentence.cpp.o
+cmake-build-debug/CMakeFiles/Test.dir/Universal/UniversalDependencyTreeBankWord.cpp.o
