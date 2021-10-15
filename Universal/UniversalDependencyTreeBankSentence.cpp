@@ -25,3 +25,16 @@ string UniversalDependencyTreeBankSentence::to_string() {
     }
     return result;
 }
+
+ParserEvaluationScore
+UniversalDependencyTreeBankSentence::compareParses(UniversalDependencyTreeBankSentence *sentence) {
+    ParserEvaluationScore score = ParserEvaluationScore();
+    for (int i = 0; i < words.size(); i++){
+        UniversalDependencyRelation* relation1 = ((UniversalDependencyTreeBankWord*) words.at(i))->getRelation();
+        UniversalDependencyRelation* relation2 = ((UniversalDependencyTreeBankWord*) sentence->getWord(i))->getRelation();
+        if (relation1 != nullptr && relation2 != nullptr){
+            score.add(relation1->compareRelations(relation2));
+        }
+    }
+    return score;
+}

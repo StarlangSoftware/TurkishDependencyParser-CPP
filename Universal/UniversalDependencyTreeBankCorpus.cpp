@@ -68,3 +68,11 @@ UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(string file
         }
     }
 }
+
+ParserEvaluationScore UniversalDependencyTreeBankCorpus::compareParses(UniversalDependencyTreeBankCorpus corpus) {
+    ParserEvaluationScore score = ParserEvaluationScore();
+    for (int i = 0; i < sentences.size(); i++){
+        score.add(((UniversalDependencyTreeBankSentence*) sentences.at(i))->compareParses((UniversalDependencyTreeBankSentence*) corpus.getSentence(i)));
+    }
+    return score;
+}

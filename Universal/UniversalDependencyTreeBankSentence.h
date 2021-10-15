@@ -8,6 +8,7 @@
 #include<string>
 #include<vector>
 #include <Sentence.h>
+#include "../ParserEvaluationScore.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ private:
 public:
     UniversalDependencyTreeBankSentence();
     void addComment(string comment);
+    ParserEvaluationScore compareParses(UniversalDependencyTreeBankSentence* sentence);
     string to_string();
 };
 

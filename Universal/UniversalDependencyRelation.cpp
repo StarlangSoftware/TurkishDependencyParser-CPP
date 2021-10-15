@@ -91,3 +91,17 @@ string UniversalDependencyRelation::to_string(){
 string UniversalDependencyRelation::to_string(UniversalDependencyPosType posType) {
     return UniversalDependencyRelation::universalDependencyPosTypes[static_cast<int>(posType)];
 }
+
+ParserEvaluationScore UniversalDependencyRelation::compareRelations(UniversalDependencyRelation* relation) {
+    double LS = 0.0, LAS = 0.0, UAS = 0.0;
+    if (to_string() == relation->to_string()){
+        LS = 1.0;
+        if (toWord == relation->to()){
+            LAS = 1.0;
+        }
+    }
+    if (toWord == relation->to()){
+        UAS = 1.0;
+    }
+    return {LAS, UAS, LS, 1};
+}

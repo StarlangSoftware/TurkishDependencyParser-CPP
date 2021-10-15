@@ -7,10 +7,12 @@
 
 
 #include <Corpus.h>
+#include "../ParserEvaluationScore.h"
 
 class UniversalDependencyTreeBankCorpus : public Corpus {
 public:
     explicit UniversalDependencyTreeBankCorpus(string fileName);
+    ParserEvaluationScore compareParses(UniversalDependencyTreeBankCorpus corpus);
 };
 
 
