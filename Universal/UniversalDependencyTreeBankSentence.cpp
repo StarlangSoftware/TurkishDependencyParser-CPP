@@ -3,11 +3,57 @@
 //
 
 #include <Word.h>
+#include <iostream>
+#include <regex>
 #include "UniversalDependencyTreeBankSentence.h"
 #include "UniversalDependencyTreeBankWord.h"
 
+void to_upper(char& ch) {
+    ch = toupper(static_cast<unsigned char>(ch));
+}
+
 UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence() : Sentence(){
 
+}
+
+UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(string sentence) : Sentence(){
+    UniversalDependencyRelation* relation;
+    vector<string> lines = Word::split(sentence, "\n");
+    for (string line : lines){
+        if (line.empty()){
+            continue;
+        }
+        if (Word::startsWith(line, "#")){
+            addComment(Word::trim(line));
+        } else {
+            vector<string> items = Word::split(line, "\t");
+            if (items.size() != 10){
+                cout << "Line does not contain 10 items ->" << line;
+            } else {
+                string id = items[0];
+                if (regex_match(id, regex("\\d+"))){
+                    string surfaceForm = items[1];
+                    string lemma = items[2];
+                    UniversalDependencyPosType upos = UniversalDependencyRelation::getDependencyPosType(items[3]);
+                    string xpos = items[4];
+                    auto* features = new UniversalDependencyTreeBankFeatures(items[5]);
+                    if (items[6] != "_"){
+                        int to = stoi(items[6]);
+                        string dependencyType = items[7];
+                        std::for_each(dependencyType.begin(), dependencyType.end(), to_upper);
+                        relation = new UniversalDependencyRelation(to, dependencyType);
+                    } else {
+                        relation = nullptr;
+                    }
+                    string deps = items[8];
+                    string misc = items[9];
+                    auto* word = new UniversalDependencyTreeBankWord(stoi(id), surfaceForm,
+                                                                     lemma, upos, xpos, features, relation, deps, misc);
+                    addWord(word);
+                }
+            }
+        }
+    }
 }
 
 void UniversalDependencyTreeBankSentence::addComment(string comment) {

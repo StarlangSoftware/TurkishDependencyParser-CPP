@@ -17,6 +17,7 @@ private:
     vector<string> comments;
 public:
     UniversalDependencyTreeBankSentence();
+    UniversalDependencyTreeBankSentence(string sentence);
     void addComment(string comment);
     ParserEvaluationScore compareParses(UniversalDependencyTreeBankSentence* sentence);
     string to_string();
