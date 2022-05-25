@@ -42,5 +42,5 @@ string UniversalDependencyTreeBankFeatures::to_string() {
 }
 
 bool UniversalDependencyTreeBankFeatures::featureExists(const string& feature) {
-    return featureList.find(feature) != featureList.end();
+    return featureList.contains(feature);
 }
