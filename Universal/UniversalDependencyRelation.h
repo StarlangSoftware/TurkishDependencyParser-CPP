@@ -18,8 +18,8 @@ class UniversalDependencyRelation : public DependencyRelation {
 private:
     UniversalDependencyType universalDependencyType;
 public:
-    static const string universalDependencyTypes[58];
-    static const UniversalDependencyType universalDependencyTags[58];
+    static const string universalDependencyTypes[59];
+    static const UniversalDependencyType universalDependencyTags[59];
     static const string universalDependencyPosTypes[17];
     static const UniversalDependencyPosType universalDependencyPosTags[17];
     explicit UniversalDependencyRelation(int toWord);
