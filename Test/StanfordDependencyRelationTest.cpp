@@ -3,7 +3,7 @@
 //
 
 #include "catch.hpp"
-#include "../Stanford/StanfordDependencyRelation.h"
+#include "../src/Stanford/StanfordDependencyRelation.h"
 
 TEST_CASE("StanfordDependencyRelationTest-testDependencyType") {
     REQUIRE_FALSE(StanfordDependencyRelation::getDependencyTag("ACOMP") != StanfordDependencyType::ACOMP);

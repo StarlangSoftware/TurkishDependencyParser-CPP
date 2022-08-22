@@ -3,7 +3,7 @@
 //
 
 #include "catch.hpp"
-#include "../Turkish/TurkishDependencyRelation.h"
+#include "../src/Turkish/TurkishDependencyRelation.h"
 
 TEST_CASE("TurkishDependencyRelationTest-testDependencyType") {
     REQUIRE_FALSE(TurkishDependencyRelation::getDependencyTag("subject") != TurkishDependencyType::SUBJECT);

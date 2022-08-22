@@ -3,7 +3,7 @@
 //
 
 #include "catch.hpp"
-#include "../Universal/UniversalDependencyTreeBankCorpus.h"
+#include "../src/Universal/UniversalDependencyTreeBankCorpus.h"
 
 int wordCount(UniversalDependencyTreeBankCorpus corpus){
     int wordCount = 0;

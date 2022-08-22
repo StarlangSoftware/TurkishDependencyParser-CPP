@@ -3,7 +3,7 @@
 //
 
 #include "catch.hpp"
-#include "../Universal/UniversalDependencyRelation.h"
+#include "../src/Universal/UniversalDependencyRelation.h"
 
 TEST_CASE("UniversalDependencyRelationTest-testDependencyPosType") {
     REQUIRE_FALSE(UniversalDependencyRelation::getDependencyPosType("adj") != UniversalDependencyPosType::ADJ);

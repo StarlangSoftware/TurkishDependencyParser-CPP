@@ -6,10 +6,10 @@
 
 #include <CounterHashMap.h>
 #include "catch.hpp"
-#include "../Turkish/TurkishDependencyType.h"
-#include "../Turkish/TurkishDependencyTreeBankCorpus.h"
-#include "../Turkish/TurkishDependencyTreeBankSentence.h"
-#include "../Turkish/TurkishDependencyTreeBankWord.h"
+#include "../src/Turkish/TurkishDependencyType.h"
+#include "../src/Turkish/TurkishDependencyTreeBankCorpus.h"
+#include "../src/Turkish/TurkishDependencyTreeBankSentence.h"
+#include "../src/Turkish/TurkishDependencyTreeBankWord.h"
 
 TEST_CASE("TurkishDependencyTreeBankCorpusTest-testDependencyCorpus") {
     CounterHashMap<TurkishDependencyType> relationCounts = CounterHashMap<TurkishDependencyType>();
