@@ -24,7 +24,10 @@ const TurkishDependencyType TurkishDependencyRelation::turkishDependencyTags[23]
  * @return Type of the dependency in {@link TurkishDependencyType} form
  */
 TurkishDependencyType TurkishDependencyRelation::getDependencyTag(string tag) {
-    std::transform(tag.begin(), tag.end(), tag.begin(), [](unsigned char c){ return std::toupper(c); });
+    transform(tag.begin(),
+              tag.end(),
+              tag.begin(),
+              ::toupper);
     for (int j = 0; j < 23; j++) {
         if (tag == TurkishDependencyRelation::turkishDependencyTypes[j]) {
             return TurkishDependencyRelation::turkishDependencyTags[j];

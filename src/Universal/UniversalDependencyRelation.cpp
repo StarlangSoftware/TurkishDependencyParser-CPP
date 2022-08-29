@@ -67,7 +67,10 @@ UniversalDependencyRelation::UniversalDependencyRelation(int toWord, string depe
  * @return Type of the dependency in {@link UniversalDependencyType} form
  */
 UniversalDependencyType UniversalDependencyRelation::getDependencyTag(string tag) {
-    std::transform(tag.begin(), tag.end(), tag.begin(), [](unsigned char c){ return std::tolower(c); });
+    transform(tag.begin(),
+              tag.end(),
+              tag.begin(),
+              ::tolower);
     for (int j = 0; j < 37; j++) {
         if (tag == UniversalDependencyRelation::universalDependencyTypes[j]) {
             return UniversalDependencyRelation::universalDependencyTags[j];
@@ -76,7 +79,10 @@ UniversalDependencyType UniversalDependencyRelation::getDependencyTag(string tag
 }
 
 UniversalDependencyPosType UniversalDependencyRelation::getDependencyPosType(string tag){
-    std::transform(tag.begin(), tag.end(), tag.begin(), [](unsigned char c){ return std::toupper(c); });
+    transform(tag.begin(),
+                   tag.end(),
+                   tag.begin(),
+                   ::toupper);
     for (int i = 0; i < 17; i++) {
         if (tag == universalDependencyPosTypes[i]) {
             return universalDependencyPosTags[i];
