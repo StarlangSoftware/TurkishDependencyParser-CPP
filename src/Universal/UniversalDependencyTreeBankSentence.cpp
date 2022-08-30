@@ -8,10 +8,6 @@
 #include "UniversalDependencyTreeBankSentence.h"
 #include "UniversalDependencyTreeBankWord.h"
 
-void to_upper(char& ch) {
-    ch = toupper(static_cast<unsigned char>(ch));
-}
-
 UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence() : Sentence(){
 
 }
@@ -40,7 +36,7 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(string 
                     if (items[6] != "_"){
                         int to = stoi(items[6]);
                         string dependencyType = items[7];
-                        std::for_each(dependencyType.begin(), dependencyType.end(), to_upper);
+                        std::transform(dependencyType.begin(), dependencyType.end(), dependencyType.begin(), ::toupper);
                         relation = new UniversalDependencyRelation(to, dependencyType);
                     } else {
                         relation = nullptr;
