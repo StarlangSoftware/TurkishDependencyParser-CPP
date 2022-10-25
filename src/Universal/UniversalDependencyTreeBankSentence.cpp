@@ -12,10 +12,10 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence() : Sen
 
 }
 
-UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(string sentence) : Sentence(){
+UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const string& sentence) : Sentence(){
     UniversalDependencyRelation* relation;
     vector<string> lines = Word::split(sentence, "\n");
-    for (string line : lines){
+    for (const string& line : lines){
         if (line.empty()){
             continue;
         }
@@ -52,11 +52,11 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(string 
     }
 }
 
-void UniversalDependencyTreeBankSentence::addComment(string comment) {
+void UniversalDependencyTreeBankSentence::addComment(const string& comment) {
     comments.emplace_back(comment);
 }
 
-string UniversalDependencyTreeBankSentence::to_string() {
+string UniversalDependencyTreeBankSentence::to_string() const{
     string result;
     for (const string& comment : comments){
         result += comment + "\n";
@@ -69,7 +69,7 @@ string UniversalDependencyTreeBankSentence::to_string() {
 }
 
 ParserEvaluationScore
-UniversalDependencyTreeBankSentence::compareParses(UniversalDependencyTreeBankSentence *sentence) {
+UniversalDependencyTreeBankSentence::compareParses(UniversalDependencyTreeBankSentence *sentence) const{
     ParserEvaluationScore score = ParserEvaluationScore();
     for (int i = 0; i < words.size(); i++){
         UniversalDependencyRelation* relation1 = ((UniversalDependencyTreeBankWord*) words.at(i))->getRelation();

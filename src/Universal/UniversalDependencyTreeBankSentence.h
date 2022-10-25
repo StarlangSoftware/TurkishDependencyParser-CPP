@@ -17,10 +17,10 @@ private:
     vector<string> comments;
 public:
     UniversalDependencyTreeBankSentence();
-    UniversalDependencyTreeBankSentence(string sentence);
-    void addComment(string comment);
-    ParserEvaluationScore compareParses(UniversalDependencyTreeBankSentence* sentence);
-    string to_string();
+    UniversalDependencyTreeBankSentence(const string& sentence);
+    void addComment(const string& comment);
+    ParserEvaluationScore compareParses(UniversalDependencyTreeBankSentence* sentence) const;
+    string to_string() const;
 };
 
 

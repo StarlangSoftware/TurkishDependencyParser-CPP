@@ -23,20 +23,20 @@ private:
     string misc;
 public:
     ~UniversalDependencyTreeBankWord();
-    UniversalDependencyTreeBankWord(int id, string name, string lemma, UniversalDependencyPosType upos, string xpos,
+    UniversalDependencyTreeBankWord(int id, const string& name, const string& lemma, UniversalDependencyPosType upos, const string& xpos,
                                     UniversalDependencyTreeBankFeatures* features,
-                                    UniversalDependencyRelation* relation, string deps, string misc);
-    int getId();
-    string getLemma();
-    UniversalDependencyPosType getUpos();
-    string getXpos();
-    UniversalDependencyTreeBankFeatures* getFeatures();
-    string getFeatureValue(string featureName);
-    bool featureExists(string featureName);
-    UniversalDependencyRelation* getRelation();
-    string getDeps();
-    string getMisc();
-    string to_string();
+                                    UniversalDependencyRelation* relation, const string& deps, const string& misc);
+    int getId() const;
+    string getLemma() const;
+    UniversalDependencyPosType getUpos() const;
+    string getXpos() const;
+    UniversalDependencyTreeBankFeatures* getFeatures() const;
+    string getFeatureValue(const string& featureName) const;
+    bool featureExists(const string& featureName) const;
+    UniversalDependencyRelation* getRelation() const;
+    string getDeps() const;
+    string getMisc() const;
+    string to_string() const;
 };
 
 

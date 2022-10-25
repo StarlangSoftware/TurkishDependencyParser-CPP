@@ -18,12 +18,12 @@ private:
 public:
     static const string turkishDependencyTypes[23];
     static const TurkishDependencyType turkishDependencyTags[23];
-    static TurkishDependencyType getDependencyTag(string tag);
+    static TurkishDependencyType getDependencyTag(const string& tag);
     TurkishDependencyRelation() = default;
-    TurkishDependencyRelation(int toWord, int toIG, string dependencyType);
-    int getToIG();
-    TurkishDependencyType getTurkishDependencyType();
-    string to_string();
+    TurkishDependencyRelation(int toWord, int toIG, const string& dependencyType);
+    int getToIG() const;
+    TurkishDependencyType getTurkishDependencyType() const;
+    string to_string() const;
 };
 
 

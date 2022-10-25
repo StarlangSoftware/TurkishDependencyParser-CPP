@@ -13,23 +13,23 @@ ParserEvaluationScore::ParserEvaluationScore(double LAS, double UAS, double LS, 
     this->wordCount = wordCount;
 }
 
-double ParserEvaluationScore::getLAS() {
+double ParserEvaluationScore::getLAS() const{
     return LAS;
 }
 
-double ParserEvaluationScore::getUAS() {
+double ParserEvaluationScore::getUAS() const{
     return UAS;
 }
 
-double ParserEvaluationScore::getLS() {
+double ParserEvaluationScore::getLS() const{
     return LS;
 }
 
-int ParserEvaluationScore::getWordCount() {
+int ParserEvaluationScore::getWordCount() const{
     return wordCount;
 }
 
-void ParserEvaluationScore::add(ParserEvaluationScore parserEvaluationScore) {
+void ParserEvaluationScore::add(const ParserEvaluationScore& parserEvaluationScore) {
     LAS = (LAS * wordCount + parserEvaluationScore.LAS * parserEvaluationScore.wordCount) / (wordCount + parserEvaluationScore.wordCount);
     UAS = (UAS * wordCount + parserEvaluationScore.UAS * parserEvaluationScore.wordCount) / (wordCount + parserEvaluationScore.wordCount);
     LS = (LS * wordCount + parserEvaluationScore.LS * parserEvaluationScore.wordCount) / (wordCount + parserEvaluationScore.wordCount);

@@ -10,7 +10,7 @@
  * Constructor to create an empty copy of this corpus.
  * @return An empty copy of this corpus.
  */
-TurkishDependencyTreeBankCorpus TurkishDependencyTreeBankCorpus::emptyCopy() {
+TurkishDependencyTreeBankCorpus TurkishDependencyTreeBankCorpus::emptyCopy() const{
     return TurkishDependencyTreeBankCorpus();
 }
 
@@ -19,8 +19,8 @@ TurkishDependencyTreeBankCorpus TurkishDependencyTreeBankCorpus::emptyCopy() {
  * reads sentences one by one. For each sentence, the function constructs a TurkishDependencyTreeBankSentence.
  * @param fileName Input file name to read the TurkishDependencyTreeBankCorpus.
  */
-TurkishDependencyTreeBankCorpus::TurkishDependencyTreeBankCorpus(string fileName) : Corpus() {
-    XmlDocument doc = XmlDocument(move(fileName));
+TurkishDependencyTreeBankCorpus::TurkishDependencyTreeBankCorpus(const string& fileName) : Corpus() {
+    XmlDocument doc = XmlDocument(fileName);
     TurkishDependencyTreeBankSentence* sentence;
     doc.parse();
     XmlElement* rootNode = doc.getFirstChild();

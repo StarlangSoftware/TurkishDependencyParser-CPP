@@ -16,6 +16,6 @@ DependencyRelation::DependencyRelation(int toWord) {
  * Accessor for toWord attribute
  * @return toWord attribute value
  */
-int DependencyRelation::to() {
+int DependencyRelation::to() const{
     return toWord;
 }

@@ -17,11 +17,11 @@ private:
     TurkishDependencyRelation relation;
 public:
     explicit TurkishDependencyTreeBankWord(XmlElement* wordNode);
-    vector<string> splitIntoInflectionalGroups(string IG);
-    MorphologicalParse getParse();
-    MorphologicalParse getOriginalParse(int index);
-    int size();
-    TurkishDependencyRelation getRelation();
+    vector<string> splitIntoInflectionalGroups(const string& IG);
+    MorphologicalParse getParse() const;
+    MorphologicalParse getOriginalParse(int index) const;
+    int size() const;
+    TurkishDependencyRelation getRelation() const;
 };
 
 

@@ -11,8 +11,8 @@
 
 class UniversalDependencyTreeBankCorpus : public Corpus {
 public:
-    explicit UniversalDependencyTreeBankCorpus(string fileName);
-    ParserEvaluationScore compareParses(UniversalDependencyTreeBankCorpus corpus);
+    explicit UniversalDependencyTreeBankCorpus(const string& fileName);
+    ParserEvaluationScore compareParses(const UniversalDependencyTreeBankCorpus& corpus);
 };
 
 

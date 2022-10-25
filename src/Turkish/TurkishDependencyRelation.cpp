@@ -23,13 +23,14 @@ const TurkishDependencyType TurkishDependencyRelation::turkishDependencyTags[23]
  * @param tag  Type of the dependency tag in string form
  * @return Type of the dependency in {@link TurkishDependencyType} form
  */
-TurkishDependencyType TurkishDependencyRelation::getDependencyTag(string tag) {
-    transform(tag.begin(),
-              tag.end(),
-              tag.begin(),
+TurkishDependencyType TurkishDependencyRelation::getDependencyTag(const string& tag) {
+    string _tag = tag;
+    transform(_tag.begin(),
+              _tag.end(),
+              _tag.begin(),
               ::toupper);
     for (int j = 0; j < 23; j++) {
-        if (tag == TurkishDependencyRelation::turkishDependencyTypes[j]) {
+        if (_tag == TurkishDependencyRelation::turkishDependencyTypes[j]) {
             return TurkishDependencyRelation::turkishDependencyTags[j];
         }
     }
@@ -42,16 +43,16 @@ TurkishDependencyType TurkishDependencyRelation::getDependencyTag(string tag) {
  * @param toIG Index of the inflectional group the dependency relation is related
  * @param dependencyType Type of the dependency relation in string form
  */
-TurkishDependencyRelation::TurkishDependencyRelation(int toWord, int toIG, string dependencyType) : DependencyRelation(toWord){
+TurkishDependencyRelation::TurkishDependencyRelation(int toWord, int toIG, const string& dependencyType) : DependencyRelation(toWord){
     this->toIG = toIG;
-    this->turkishDependencyType = getDependencyTag(move(dependencyType));
+    this->turkishDependencyType = getDependencyTag(dependencyType);
 }
 
 /**
  * Accessor for the toIG attribute
  * @return toIG attribute
  */
-int TurkishDependencyRelation::getToIG(){
+int TurkishDependencyRelation::getToIG() const{
     return toIG;
 }
 
@@ -59,10 +60,10 @@ int TurkishDependencyRelation::getToIG(){
  * Accessor for the turkishDependencyType attribute
  * @return turkishDependencyType attribute
  */
-TurkishDependencyType TurkishDependencyRelation::getTurkishDependencyType(){
+TurkishDependencyType TurkishDependencyRelation::getTurkishDependencyType() const{
     return turkishDependencyType;
 }
 
-string TurkishDependencyRelation::to_string() {
+string TurkishDependencyRelation::to_string() const{
     return TurkishDependencyRelation::turkishDependencyTypes[static_cast<int>(turkishDependencyType)];
 }

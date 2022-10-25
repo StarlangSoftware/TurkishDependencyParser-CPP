@@ -18,9 +18,9 @@ private:
 public:
     static const string stanfordDependencyTypes[49];
     static const StanfordDependencyType stanfordDependencyTags[49];
-    static StanfordDependencyType getDependencyTag(string tag);
-    StanfordDependencyRelation(int toWord, string dependencyType);
-    string to_string();
+    static StanfordDependencyType getDependencyTag(const string& tag);
+    StanfordDependencyRelation(int toWord, const string& dependencyType);
+    string to_string() const;
 };
 
 

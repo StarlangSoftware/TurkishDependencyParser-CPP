@@ -11,7 +11,7 @@
  */
 TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNode) {
     string IG, relationName, dependencyType;
-    int i, index, toWord = 0, toIG = 0;
+    int index, toWord = 0, toIG = 0;
     if (wordNode->hasAttributes()){
         name = wordNode->getPcData();
         if (!wordNode->getAttributeValue("IG").empty()){
@@ -42,7 +42,7 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
                 }
             }
         }
-        for (i = 1; i <= 9; i++){
+        for (int i = 1; i <= 9; i++){
             if (!wordNode->getAttributeValue("ORG_IG" + std::to_string(i)).empty()){
                 IG = wordNode->getAttributeValue("ORG_IG" + std::to_string(i));
                 originalParses.emplace_back(MorphologicalParse(splitIntoInflectionalGroups(IG)));
@@ -56,11 +56,12 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
  * @param IG Morphological parse of the word in string form.
  * @return An array of inflectional groups stored as strings.
  */
-vector<string> TurkishDependencyTreeBankWord::splitIntoInflectionalGroups(string IG) {
+vector<string> TurkishDependencyTreeBankWord::splitIntoInflectionalGroups(const string& IG) {
     vector<string> inflectionalGroups;
-    IG = Word::replaceAll(IG, "(+Punc", "@");
-    IG = Word::replaceAll(IG, ")+Punc", "$");
-    vector<string> iGs = Word::split(IG, "[()]");
+    string ig;
+    ig = Word::replaceAll(IG, "(+Punc", "@");
+    ig = Word::replaceAll(ig, ")+Punc", "$");
+    vector<string> iGs = Word::split(ig, "[()]");
     for (int i = 0; i < iGs.size(); i++){
         string IGI = iGs[i];
         IGI = Word::replaceAll(IGI, "@", "(+Punc");
@@ -76,7 +77,7 @@ vector<string> TurkishDependencyTreeBankWord::splitIntoInflectionalGroups(string
  * Accessor for the parse attribute
  * @return Parse attribute
  */
-MorphologicalParse TurkishDependencyTreeBankWord::getParse() {
+MorphologicalParse TurkishDependencyTreeBankWord::getParse() const{
     return parse;
 }
 
@@ -85,7 +86,7 @@ MorphologicalParse TurkishDependencyTreeBankWord::getParse() {
  * @param index Index of the word.
  * @return Parse of the index'th word
  */
-MorphologicalParse TurkishDependencyTreeBankWord::getOriginalParse(int index) {
+MorphologicalParse TurkishDependencyTreeBankWord::getOriginalParse(int index) const{
     return originalParses.at(index);
 }
 
@@ -93,7 +94,7 @@ MorphologicalParse TurkishDependencyTreeBankWord::getOriginalParse(int index) {
  * Number of words in this item.
  * @return Number of words in this item.
  */
-int TurkishDependencyTreeBankWord::size() {
+int TurkishDependencyTreeBankWord::size() const{
     return originalParses.size();
 }
 
@@ -101,6 +102,6 @@ int TurkishDependencyTreeBankWord::size() {
  * Accessor for the relation attribute.
  * @return relation attribute.
  */
-TurkishDependencyRelation TurkishDependencyTreeBankWord::getRelation() {
+TurkishDependencyRelation TurkishDependencyTreeBankWord::getRelation() const{
     return relation;
 }

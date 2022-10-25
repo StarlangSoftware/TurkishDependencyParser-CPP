@@ -10,10 +10,10 @@
 
 using namespace std;
 
-UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(string fileName) {
+UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(const string& fileName) {
     ifstream inputStream;
     inputStream.open(fileName, ifstream::in);
-    this->fileName = move(fileName);
+    this->fileName = fileName;
     string line;
     string sentence;
     while (inputStream.good()){
@@ -30,7 +30,7 @@ UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(string file
     }
 }
 
-ParserEvaluationScore UniversalDependencyTreeBankCorpus::compareParses(UniversalDependencyTreeBankCorpus corpus) {
+ParserEvaluationScore UniversalDependencyTreeBankCorpus::compareParses(const UniversalDependencyTreeBankCorpus& corpus) {
     ParserEvaluationScore score = ParserEvaluationScore();
     for (int i = 0; i < sentences.size(); i++){
         score.add(((UniversalDependencyTreeBankSentence*) sentences.at(i))->compareParses((UniversalDependencyTreeBankSentence*) corpus.getSentence(i)));

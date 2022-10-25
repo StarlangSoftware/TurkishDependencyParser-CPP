@@ -9,8 +9,8 @@
 
 class TurkishDependencyTreeBankCorpus : public Corpus {
 public:
-    TurkishDependencyTreeBankCorpus emptyCopy();
-    explicit TurkishDependencyTreeBankCorpus(string fileName);
+    TurkishDependencyTreeBankCorpus emptyCopy() const;
+    explicit TurkishDependencyTreeBankCorpus(const string& fileName);
     TurkishDependencyTreeBankCorpus() = default;
 };
 

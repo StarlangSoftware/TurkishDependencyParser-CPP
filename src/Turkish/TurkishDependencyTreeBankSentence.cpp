@@ -26,7 +26,7 @@ TurkishDependencyTreeBankSentence::TurkishDependencyTreeBankSentence(XmlElement*
  * index differences.
  * @return Maximum of all word to related word distances.
  */
-int TurkishDependencyTreeBankSentence::maxDependencyLength() {
+int TurkishDependencyTreeBankSentence::maxDependencyLength() const{
     int max = 0;
     for (int i = 0; i < words.size(); i++){
         auto* word = (TurkishDependencyTreeBankWord*) words.at(i);

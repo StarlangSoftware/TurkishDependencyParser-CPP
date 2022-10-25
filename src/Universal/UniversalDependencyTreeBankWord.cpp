@@ -6,58 +6,58 @@
 
 #include <utility>
 
-UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord(int id, string name, string lemma, UniversalDependencyPosType upos,
-                                                                 string xpos,
+UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord(int id, const string& name, const string& lemma, UniversalDependencyPosType upos,
+                                                                 const string& xpos,
                                                                  UniversalDependencyTreeBankFeatures* features,
-                                                                 UniversalDependencyRelation* relation, string deps,
-                                                                 string misc) : Word(std::move(name)){
+                                                                 UniversalDependencyRelation* relation, const string& deps,
+                                                                 const string& misc) : Word(name){
     this->id = id;
-    this->lemma = std::move(lemma);
+    this->lemma = lemma;
     this->upos = upos;
-    this->xpos = std::move(xpos);
+    this->xpos = xpos;
     this->features = features;
-    this->deps = std::move(deps);
+    this->deps = deps;
     this->relation = relation;
-    this->misc = std::move(misc);
+    this->misc = misc;
 }
 
-int UniversalDependencyTreeBankWord::getId() {
+int UniversalDependencyTreeBankWord::getId() const{
     return id;
 }
 
-string UniversalDependencyTreeBankWord::getLemma() {
+string UniversalDependencyTreeBankWord::getLemma() const{
     return lemma;
 }
 
-UniversalDependencyPosType UniversalDependencyTreeBankWord::getUpos() {
+UniversalDependencyPosType UniversalDependencyTreeBankWord::getUpos() const{
     return upos;
 }
 
-string UniversalDependencyTreeBankWord::getXpos() {
+string UniversalDependencyTreeBankWord::getXpos() const{
     return xpos;
 }
 
-UniversalDependencyTreeBankFeatures* UniversalDependencyTreeBankWord::getFeatures() {
+UniversalDependencyTreeBankFeatures* UniversalDependencyTreeBankWord::getFeatures() const{
     return features;
 }
 
-string UniversalDependencyTreeBankWord::getFeatureValue(string featureName) {
+string UniversalDependencyTreeBankWord::getFeatureValue(const string& featureName) const{
     return features->getFeatureValue(featureName);
 }
 
-UniversalDependencyRelation* UniversalDependencyTreeBankWord::getRelation() {
+UniversalDependencyRelation* UniversalDependencyTreeBankWord::getRelation() const{
     return relation;
 }
 
-string UniversalDependencyTreeBankWord::getDeps() {
+string UniversalDependencyTreeBankWord::getDeps() const{
     return deps;
 }
 
-string UniversalDependencyTreeBankWord::getMisc() {
+string UniversalDependencyTreeBankWord::getMisc() const{
     return misc;
 }
 
-string UniversalDependencyTreeBankWord::to_string() {
+string UniversalDependencyTreeBankWord::to_string() const{
     return ::to_string(id) + "\t" + name + "\t" + lemma + "\t" + UniversalDependencyRelation::to_string(upos) + "\t" +
            xpos + "\t" + features->to_string() + "\t" + ::to_string(relation->to()) + "\t" +
            relation->to_string() + "\t" + deps + "\t" + misc;
@@ -68,6 +68,6 @@ UniversalDependencyTreeBankWord::~UniversalDependencyTreeBankWord() {
     delete relation;
 }
 
-bool UniversalDependencyTreeBankWord::featureExists(string featureName) {
+bool UniversalDependencyTreeBankWord::featureExists(const string& featureName) const{
     return features->featureExists(featureName);
 }

@@ -55,8 +55,8 @@ UniversalDependencyRelation::UniversalDependencyRelation(int toWord) : Dependenc
  * @param toWord Index of the word in the sentence that dependency relation is related
  * @param dependencyType Type of the dependency relation in string form
  */
-UniversalDependencyRelation::UniversalDependencyRelation(int toWord, string dependencyType) : DependencyRelation(toWord){
-    this->universalDependencyType = getDependencyTag(move(dependencyType));
+UniversalDependencyRelation::UniversalDependencyRelation(int toWord, const string& dependencyType) : DependencyRelation(toWord){
+    this->universalDependencyType = getDependencyTag(dependencyType);
 }
 
 /**
@@ -66,31 +66,33 @@ UniversalDependencyRelation::UniversalDependencyRelation(int toWord, string depe
  * @param tag  Type of the dependency tag in string form
  * @return Type of the dependency in {@link UniversalDependencyType} form
  */
-UniversalDependencyType UniversalDependencyRelation::getDependencyTag(string tag) {
-    transform(tag.begin(),
-              tag.end(),
-              tag.begin(),
+UniversalDependencyType UniversalDependencyRelation::getDependencyTag(const string& tag) {
+    string _tag = tag;
+    transform(_tag.begin(),
+              _tag.end(),
+              _tag.begin(),
               ::tolower);
     for (int j = 0; j < 37; j++) {
-        if (tag == UniversalDependencyRelation::universalDependencyTypes[j]) {
+        if (_tag == UniversalDependencyRelation::universalDependencyTypes[j]) {
             return UniversalDependencyRelation::universalDependencyTags[j];
         }
     }
 }
 
-UniversalDependencyPosType UniversalDependencyRelation::getDependencyPosType(string tag){
-    transform(tag.begin(),
-                   tag.end(),
-                   tag.begin(),
+UniversalDependencyPosType UniversalDependencyRelation::getDependencyPosType(const string& tag){
+    string _tag = tag;
+    transform(_tag.begin(),
+                   _tag.end(),
+                   _tag.begin(),
                    ::toupper);
     for (int i = 0; i < 17; i++) {
-        if (tag == universalDependencyPosTypes[i]) {
+        if (_tag == universalDependencyPosTypes[i]) {
             return universalDependencyPosTags[i];
         }
     }
 }
 
-string UniversalDependencyRelation::to_string(){
+string UniversalDependencyRelation::to_string() const{
     return UniversalDependencyRelation::universalDependencyTypes[static_cast<int>(universalDependencyType)];
 }
 
@@ -98,7 +100,7 @@ string UniversalDependencyRelation::to_string(UniversalDependencyPosType posType
     return UniversalDependencyRelation::universalDependencyPosTypes[static_cast<int>(posType)];
 }
 
-ParserEvaluationScore UniversalDependencyRelation::compareRelations(UniversalDependencyRelation* relation) {
+ParserEvaluationScore UniversalDependencyRelation::compareRelations(UniversalDependencyRelation* relation) const{
     double LS = 0.0, LAS = 0.0, UAS = 0.0;
     if (to_string() == relation->to_string()){
         LS = 1.0;

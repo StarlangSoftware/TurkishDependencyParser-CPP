@@ -11,7 +11,7 @@
 class TurkishDependencyTreeBankSentence : public Sentence {
 public:
     explicit TurkishDependencyTreeBankSentence(XmlElement* sentenceNode);
-    int maxDependencyLength();
+    int maxDependencyLength() const;
 };
 
 

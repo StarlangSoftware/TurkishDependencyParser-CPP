@@ -7,7 +7,7 @@
 #include "Dictionary/Word.h"
 #include "UniversalDependencyTreeBankFeatures.h"
 
-UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(string features) {
+UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(const string& features) {
     if (features != "_"){
         vector<string> list = Word::split(features, "|");
         for (const string& feature : list){
@@ -22,11 +22,11 @@ UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(string 
     }
 }
 
-string UniversalDependencyTreeBankFeatures::getFeatureValue(const string& feature) {
+string UniversalDependencyTreeBankFeatures::getFeatureValue(const string& feature) const{
     return featureList.at(feature);
 }
 
-string UniversalDependencyTreeBankFeatures::to_string() {
+string UniversalDependencyTreeBankFeatures::to_string() const{
     if (featureList.empty()){
         return "_";
     }
@@ -41,6 +41,6 @@ string UniversalDependencyTreeBankFeatures::to_string() {
     return result;
 }
 
-bool UniversalDependencyTreeBankFeatures::featureExists(const string& feature) {
+bool UniversalDependencyTreeBankFeatures::featureExists(const string& feature) const{
     return featureList.contains(feature);
 }

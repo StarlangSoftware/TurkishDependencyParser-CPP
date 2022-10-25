@@ -29,13 +29,14 @@ const StanfordDependencyType StanfordDependencyRelation::stanfordDependencyTags[
  * @param tag  Type of the dependency tag in string form
  * @return Type of the dependency in {@link StanfordDependencyType} form
  */
-StanfordDependencyType StanfordDependencyRelation::getDependencyTag(string tag) {
-    transform(tag.begin(),
-              tag.end(),
-              tag.begin(),
+StanfordDependencyType StanfordDependencyRelation::getDependencyTag(const string& tag) {
+    string _tag = tag;
+    transform(_tag.begin(),
+              _tag.end(),
+              _tag.begin(),
               tolower);
     for (int j = 0; j < 49; j++) {
-        if (tag == StanfordDependencyRelation::stanfordDependencyTypes[j]) {
+        if (_tag == StanfordDependencyRelation::stanfordDependencyTypes[j]) {
             return StanfordDependencyRelation::stanfordDependencyTags[j];
         }
     }
@@ -48,10 +49,10 @@ StanfordDependencyType StanfordDependencyRelation::getDependencyTag(string tag) 
  * @param toWord Index of the word in the sentence that dependency relation is related
  * @param dependencyType Type of the dependency relation in string form
  */
-StanfordDependencyRelation::StanfordDependencyRelation(int toWord, string dependencyType) : DependencyRelation(toWord){
+StanfordDependencyRelation::StanfordDependencyRelation(int toWord, const string& dependencyType) : DependencyRelation(toWord){
     this->stanfordDependencyType = getDependencyTag(dependencyType);
 }
 
-string StanfordDependencyRelation::to_string(){
+string StanfordDependencyRelation::to_string() const{
     return StanfordDependencyRelation::stanfordDependencyTypes[static_cast<int>(stanfordDependencyType)];
 }

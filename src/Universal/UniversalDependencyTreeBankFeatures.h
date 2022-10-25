@@ -15,10 +15,10 @@ class UniversalDependencyTreeBankFeatures {
 private:
     unordered_map<string, string> featureList;
 public:
-    explicit UniversalDependencyTreeBankFeatures(string features);
-    string getFeatureValue(const string& feature);
-    bool featureExists(const string& feature);
-    string to_string();
+    explicit UniversalDependencyTreeBankFeatures(const string& features);
+    string getFeatureValue(const string& feature) const;
+    bool featureExists(const string& feature) const;
+    string to_string() const;
 };
 
 

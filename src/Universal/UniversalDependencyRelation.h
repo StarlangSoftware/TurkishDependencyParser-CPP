@@ -23,11 +23,11 @@ public:
     static const string universalDependencyPosTypes[17];
     static const UniversalDependencyPosType universalDependencyPosTags[17];
     explicit UniversalDependencyRelation(int toWord);
-    static UniversalDependencyType getDependencyTag(string tag);
-    static UniversalDependencyPosType getDependencyPosType(string tag);
-    UniversalDependencyRelation(int toWord, string dependencyType);
-    ParserEvaluationScore compareRelations(UniversalDependencyRelation* relation);
-    string to_string();
+    static UniversalDependencyType getDependencyTag(const string& tag);
+    static UniversalDependencyPosType getDependencyPosType(const string& tag);
+    UniversalDependencyRelation(int toWord, const string& dependencyType);
+    ParserEvaluationScore compareRelations(UniversalDependencyRelation* relation) const;
+    string to_string() const;
     static string to_string(UniversalDependencyPosType posType);
 };
 
