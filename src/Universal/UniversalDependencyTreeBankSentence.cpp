@@ -12,7 +12,7 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence() : Sen
 
 }
 
-UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const string& sentence) : Sentence(){
+UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const string& language, const string& sentence) : Sentence(){
     UniversalDependencyRelation* relation;
     vector<string> lines = Word::split(sentence, "\n");
     for (const string& line : lines){
@@ -32,7 +32,7 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const s
                     string lemma = items[2];
                     UniversalDependencyPosType upos = UniversalDependencyRelation::getDependencyPosType(items[3]);
                     string xpos = items[4];
-                    auto* features = new UniversalDependencyTreeBankFeatures(items[5]);
+                    auto* features = new UniversalDependencyTreeBankFeatures(language, items[5]);
                     if (items[6] != "_"){
                         int to = stoi(items[6]);
                         string dependencyType = items[7];

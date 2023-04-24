@@ -13,13 +13,14 @@ using namespace std;
 UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus(const string& fileName) {
     ifstream inputStream;
     inputStream.open(fileName, ifstream::in);
+    this->language = fileName.substr(0, fileName.find('_'));
     this->fileName = fileName;
     string line;
     string sentence;
     while (inputStream.good()){
         getline(inputStream, line);
         if (line.empty()){
-            auto* treeBankSentence = new UniversalDependencyTreeBankSentence(sentence);
+            auto* treeBankSentence = new UniversalDependencyTreeBankSentence(language, sentence);
             if (treeBankSentence->wordCount() > 0){
                 addSentence(treeBankSentence);
             }

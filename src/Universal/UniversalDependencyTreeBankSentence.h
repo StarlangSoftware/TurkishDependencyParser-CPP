@@ -17,7 +17,7 @@ private:
     vector<string> comments;
 public:
     UniversalDependencyTreeBankSentence();
-    UniversalDependencyTreeBankSentence(const string& sentence);
+    UniversalDependencyTreeBankSentence(const string& language, const string& sentence);
     void addComment(const string& comment);
     ParserEvaluationScore compareParses(UniversalDependencyTreeBankSentence* sentence) const;
     string to_string() const;

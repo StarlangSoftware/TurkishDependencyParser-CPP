@@ -10,6 +10,8 @@
 #include "../ParserEvaluationScore.h"
 
 class UniversalDependencyTreeBankCorpus : public Corpus {
+private:
+    string language;
 public:
     explicit UniversalDependencyTreeBankCorpus(const string& fileName);
     ParserEvaluationScore compareParses(const UniversalDependencyTreeBankCorpus& corpus);
