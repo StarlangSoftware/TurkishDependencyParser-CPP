@@ -213,3 +213,19 @@ int UniversalDependencyTreeBankFeatures::featureValueIndex(const string &languag
     }
     return -1;
 }
+
+UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(UniversalDependencyTreeBankFeatures &copy) {
+    string features = copy.to_string();
+    if (features != "_") {
+        vector<string> list = Word::split(features, "|");
+        for (const string &feature: list) {
+            if (feature.find_first_of('=') != -1) {
+                string featureName = feature.substr(0, feature.find_first_of('=') - 1);
+                string featureValue = feature.substr(feature.find_first_of('=') + 1);
+                if (featureValueIndex("u", featureName, featureValue) != -1) {
+                    featureList.emplace(featureName, featureValue);
+                }
+            }
+        }
+    }
+}

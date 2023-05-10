@@ -14,6 +14,7 @@ private:
     string language;
 public:
     explicit UniversalDependencyTreeBankCorpus(const string& fileName);
+    UniversalDependencyTreeBankCorpus();
     ParserEvaluationScore compareParses(const UniversalDependencyTreeBankCorpus& corpus);
 };
 

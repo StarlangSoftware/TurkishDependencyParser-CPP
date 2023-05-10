@@ -25,6 +25,8 @@ public:
     explicit UniversalDependencyRelation(int toWord);
     static UniversalDependencyType getDependencyTag(const string& tag);
     static UniversalDependencyPosType getDependencyPosType(const string& tag);
+    UniversalDependencyRelation();
+    UniversalDependencyRelation(UniversalDependencyRelation& copy);
     UniversalDependencyRelation(int toWord, const string& dependencyType);
     ParserEvaluationScore compareRelations(UniversalDependencyRelation* relation) const;
     string to_string() const;

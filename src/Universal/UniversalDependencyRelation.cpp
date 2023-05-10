@@ -113,3 +113,12 @@ ParserEvaluationScore UniversalDependencyRelation::compareRelations(UniversalDep
     }
     return {LAS, UAS, LS, 1};
 }
+
+UniversalDependencyRelation::UniversalDependencyRelation() {
+
+}
+
+UniversalDependencyRelation::UniversalDependencyRelation(UniversalDependencyRelation& copy) {
+    this->toWord = copy.toWord;
+    this->universalDependencyType = copy.universalDependencyType;
+}

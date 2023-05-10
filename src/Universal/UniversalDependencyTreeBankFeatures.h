@@ -24,6 +24,7 @@ public:
     static const vector<string> turkishFeatureValues[24];
     static const vector<string> englishFeatureValues[24];
     explicit UniversalDependencyTreeBankFeatures(const string& language, const string& features);
+    UniversalDependencyTreeBankFeatures(UniversalDependencyTreeBankFeatures& copy);
     string getFeatureValue(const string& feature) const;
     bool featureExists(const string& feature) const;
     string to_string() const;

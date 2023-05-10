@@ -26,6 +26,8 @@ public:
     UniversalDependencyTreeBankWord(int id, const string& name, const string& lemma, UniversalDependencyPosType upos, const string& xpos,
                                     UniversalDependencyTreeBankFeatures* features,
                                     UniversalDependencyRelation* relation, const string& deps, const string& misc);
+    UniversalDependencyTreeBankWord();
+    UniversalDependencyTreeBankWord(UniversalDependencyTreeBankWord& copy);
     int getId() const;
     string getLemma() const;
     UniversalDependencyPosType getUpos() const;
@@ -34,6 +36,7 @@ public:
     string getFeatureValue(const string& featureName) const;
     bool featureExists(const string& featureName) const;
     UniversalDependencyRelation* getRelation() const;
+    void setRelation(UniversalDependencyRelation* relation);
     string getDeps() const;
     string getMisc() const;
     string to_string() const;

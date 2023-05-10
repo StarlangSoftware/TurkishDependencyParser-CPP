@@ -71,3 +71,29 @@ UniversalDependencyTreeBankWord::~UniversalDependencyTreeBankWord() {
 bool UniversalDependencyTreeBankWord::featureExists(const string& featureName) const{
     return features->featureExists(featureName);
 }
+
+UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord() : Word("root"){
+    this->id = 0;
+    this->lemma = "";
+    this->upos = UniversalDependencyPosType::X;
+    this->xpos = "";
+    this->features = nullptr;
+    this->deps = "";
+    this->misc = "";
+    this->relation = new UniversalDependencyRelation(-1, "DEP");
+}
+
+void UniversalDependencyTreeBankWord::setRelation(UniversalDependencyRelation* _relation) {
+    this->relation = _relation;
+}
+
+UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord(UniversalDependencyTreeBankWord &copy)  : Word(copy.name) {
+    this->id = copy.id;
+    this->lemma = copy.lemma;
+    this->upos = copy.upos;
+    this->xpos = copy.xpos;
+    this->features = new UniversalDependencyTreeBankFeatures(*copy.features);
+    this->deps = copy.deps;
+    this->relation = new UniversalDependencyRelation(*copy.relation);
+    this->misc = copy.misc;
+}
