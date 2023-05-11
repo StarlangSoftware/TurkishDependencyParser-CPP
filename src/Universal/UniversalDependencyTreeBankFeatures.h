@@ -8,6 +8,7 @@
 
 #include <unordered_map>
 #include <string>
+#include "UniversalDependencyPosType.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
     string to_string() const;
     static int featureIndex(const string& featureName);
     static int posIndex(const string& uPos);
+    static string getPosString(UniversalDependencyPosType uPos);
     static int dependencyIndex(const string& universalDependency);
     static int numberOfValues(const string& language, const string& featureName);
     static int featureValueIndex(const string& language, const string& featureName, const string& featureValue);

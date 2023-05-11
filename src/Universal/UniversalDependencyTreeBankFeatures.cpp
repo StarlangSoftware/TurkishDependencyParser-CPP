@@ -240,3 +240,42 @@ int UniversalDependencyTreeBankFeatures::posIndex(const string &uPos) {
     }
     return -1;
 }
+
+string UniversalDependencyTreeBankFeatures::getPosString(UniversalDependencyPosType uPos) {
+    switch (uPos) {
+        case UniversalDependencyPosType::ADJ:
+            return UniversalDependencyRelation::universalDependencyPosTypes[0];
+        case UniversalDependencyPosType::ADV:
+            return UniversalDependencyRelation::universalDependencyPosTypes[1];
+        case UniversalDependencyPosType::INTJ:
+            return UniversalDependencyRelation::universalDependencyPosTypes[2];
+        case UniversalDependencyPosType::NOUN:
+            return UniversalDependencyRelation::universalDependencyPosTypes[3];
+        case UniversalDependencyPosType::PROPN:
+            return UniversalDependencyRelation::universalDependencyPosTypes[4];
+        case UniversalDependencyPosType::VERB:
+            return UniversalDependencyRelation::universalDependencyPosTypes[5];
+        case UniversalDependencyPosType::ADP:
+            return UniversalDependencyRelation::universalDependencyPosTypes[6];
+        case UniversalDependencyPosType::AUX:
+            return UniversalDependencyRelation::universalDependencyPosTypes[7];
+        case UniversalDependencyPosType::CCONJ:
+            return UniversalDependencyRelation::universalDependencyPosTypes[8];
+        case UniversalDependencyPosType::DET:
+            return UniversalDependencyRelation::universalDependencyPosTypes[9];
+        case UniversalDependencyPosType::NUM:
+            return UniversalDependencyRelation::universalDependencyPosTypes[10];
+        case UniversalDependencyPosType::PART:
+            return UniversalDependencyRelation::universalDependencyPosTypes[11];
+        case UniversalDependencyPosType::PRON:
+            return UniversalDependencyRelation::universalDependencyPosTypes[12];
+        case UniversalDependencyPosType::SCONJ:
+            return UniversalDependencyRelation::universalDependencyPosTypes[13];
+        case UniversalDependencyPosType::PUNCT:
+            return UniversalDependencyRelation::universalDependencyPosTypes[14];
+        case UniversalDependencyPosType::SYM:
+            return UniversalDependencyRelation::universalDependencyPosTypes[15];
+        case UniversalDependencyPosType::X:
+            return UniversalDependencyRelation::universalDependencyPosTypes[16];
+    }
+}
