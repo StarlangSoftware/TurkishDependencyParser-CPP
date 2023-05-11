@@ -14,10 +14,6 @@ using namespace std;
 class UniversalDependencyTreeBankFeatures {
 private:
     unordered_map<string, string> featureList;
-    static int featureIndex(const string& featureName);
-    static int dependencyIndex(const string& universalDependency);
-    static int numberOfValues(const string& language, const string& featureName);
-    static int featureValueIndex(const string& language, const string& featureName, const string& featureValue);
 public:
     static const string universalFeatureTypes[24];
     static const vector<string> universalFeatureValues[24];
@@ -28,6 +24,10 @@ public:
     string getFeatureValue(const string& feature) const;
     bool featureExists(const string& feature) const;
     string to_string() const;
+    static int featureIndex(const string& featureName);
+    static int dependencyIndex(const string& universalDependency);
+    static int numberOfValues(const string& language, const string& featureName);
+    static int featureValueIndex(const string& language, const string& featureName, const string& featureValue);
 };
 
 
