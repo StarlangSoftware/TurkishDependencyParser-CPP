@@ -25,6 +25,7 @@ public:
     bool featureExists(const string& feature) const;
     string to_string() const;
     static int featureIndex(const string& featureName);
+    static int posIndex(const string& uPos);
     static int dependencyIndex(const string& universalDependency);
     static int numberOfValues(const string& language, const string& featureName);
     static int featureValueIndex(const string& language, const string& featureName, const string& featureValue);

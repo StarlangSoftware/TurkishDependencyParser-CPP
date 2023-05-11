@@ -229,3 +229,14 @@ UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(Univers
         }
     }
 }
+
+int UniversalDependencyTreeBankFeatures::posIndex(const string &uPos) {
+    int index = 0;
+    for (const string& posType : UniversalDependencyRelation::universalDependencyPosTypes){
+        if (posType == uPos){
+            return index;
+        }
+        index++;
+    }
+    return -1;
+}
