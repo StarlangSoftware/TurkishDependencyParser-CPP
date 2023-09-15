@@ -117,15 +117,15 @@ UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(const s
         vector<string> list = Word::split(features, "|");
         for (const string &feature: list) {
             if (feature.find_first_of('=') != -1) {
-                string featureName = feature.substr(0, feature.find_first_of('=') - 1);
-                string featureValue = feature.substr(feature.find_first_of('=') + 1);
+                string featureName = feature.substr(0, feature.find_first_of('='));
+                string featureValue = feature.substr(feature.find_first_of('=') + 1, feature.length() - feature.find_first_of('=') - 1);
                 if (featureValueIndex(language, featureName, featureValue) != -1) {
                     featureList.emplace(featureName, featureValue);
                 } else {
-                    cout << "Fature does not contain = ->" << featureName << " or the value " << featureValue <<  " is wrong" << endl;
+                    cout << "Feature does not contain = ->" << featureName << " or the value " << featureValue <<  " is wrong" << endl;
                 }
             } else {
-                cout << "Fature does not contain = ->" << features;
+                cout << "Feature does not contain = ->" << features;
             }
         }
     }
@@ -155,7 +155,7 @@ bool UniversalDependencyTreeBankFeatures::featureExists(const string &feature) c
 }
 
 int UniversalDependencyTreeBankFeatures::featureIndex(const string& featureName) {
-    string tmpName;
+    string tmpName = featureName;
     if (featureName.find('[') != string::npos){
         tmpName = featureName.substr(0, featureName.find('['));
     }
