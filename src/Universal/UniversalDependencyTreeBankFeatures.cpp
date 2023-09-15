@@ -8,14 +8,14 @@
 #include "UniversalDependencyTreeBankFeatures.h"
 #include "UniversalDependencyRelation.h"
 
-const string UniversalDependencyTreeBankFeatures::universalFeatureTypes[24] =
+const string UniversalDependencyTreeBankFeatures::universalFeatureTypes[25] =
         {"PronType", "NumType", "Poss", "Reflex", "Foreign",
          "Abbr", "Typo", "Gender", "Animacy", "NounClass",
          "Number", "Case", "Definite", "Degree", "VerbForm",
          "Mood", "Tense", "Aspect", "Voice", "Evident",
-         "Polarity", "Person", "Polite", "Clusivity"};
+         "Polarity", "Person", "Polite", "Clusivity", "NumForm"};
 
-const vector<string> UniversalDependencyTreeBankFeatures::universalFeatureValues[24] = {
+const vector<string> UniversalDependencyTreeBankFeatures::universalFeatureValues[25] = {
         {"Art",    "Dem",    "Emp",    "Exc",    "Ind",    "Int",    "Neg",    "Prs",    "Rcp",    "Rel",     "Tot"},
         {"Card",   "Dist",   "Frac",   "Mult",   "Ord",    "Range",  "Sets"},
         {"Yes"},
@@ -43,10 +43,11 @@ const vector<string> UniversalDependencyTreeBankFeatures::universalFeatureValues
         {"Neg",    "Pos"},
         {"0",      "1",      "2",      "3",      "4"},
         {"Elev",   "Form",   "Humb",   "Infm"},
-        {"Ex",     "In"}
+        {"Ex",     "In"},
+        {"Word", "Digit", "Roman"}
 };
 
-const vector<string> UniversalDependencyTreeBankFeatures::turkishFeatureValues[24] = {
+const vector<string> UniversalDependencyTreeBankFeatures::turkishFeatureValues[25] = {
         {"Art",  "Dem",  "Ind",  "Int",   "Neg",    "Prs",        "Rcp",     "Rel",        "Tot"},
         {"Card", "Dist", "Ord"},
         {},
@@ -74,18 +75,19 @@ const vector<string> UniversalDependencyTreeBankFeatures::turkishFeatureValues[2
         {"Neg",  "Pos"},
         {"1",    "2",    "3"},
         {},
+        {},
         {}
 };
 
-const vector<string> UniversalDependencyTreeBankFeatures::englishFeatureValues[24] = {
+const vector<string> UniversalDependencyTreeBankFeatures::englishFeatureValues[25] = {
         {"Art",  "Dem",  "Emp",  "Ind", "Int", "Neg", "Prs", "Rcp", "Rel", "Tot"},
         {"Card", "Frac", "Mult", "Ord"},
         {"Yes"},
-        {},
-        {},
+        {"Yes"},
+        {"Yes"},
 
-        {},
-        {},
+        {"Yes"},
+        {"Yes"},
         {"Fem",  "Masc", "Neut"},
         {},
         {},
@@ -102,10 +104,11 @@ const vector<string> UniversalDependencyTreeBankFeatures::englishFeatureValues[2
         {"Pass"},
         {},
 
-        {},
+        {"Neg"},
         {"1",    "2",    "3"},
         {},
-        {}
+        {},
+        {"Word", "Digit", "Roman"}
 };
 
 UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(const string &language,
