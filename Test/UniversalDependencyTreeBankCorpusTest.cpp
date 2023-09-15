@@ -14,31 +14,31 @@ int wordCount(UniversalDependencyTreeBankCorpus corpus){
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus1") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("../tr_gb-ud-test.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_gb-ud-test.conllu");
     REQUIRE(2802 == corpus->sentenceCount());
     REQUIRE(16881 == wordCount(*corpus));
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus2") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("../tr_imst-ud-dev.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst-ud-dev.conllu");
     REQUIRE(988 == corpus->sentenceCount());
     REQUIRE(10046 == wordCount(*corpus));
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus3") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("../tr_imst-ud-test.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst-ud-test.conllu");
     REQUIRE(983 == corpus->sentenceCount());
     REQUIRE(10029 == wordCount(*corpus));
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus4") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("../tr_imst-ud-train.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst-ud-train.conllu");
     REQUIRE(3664 == corpus->sentenceCount());
     REQUIRE(37784 == wordCount(*corpus));
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus5") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("../tr_pud-ud-test.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_pud-ud-test.conllu");
     REQUIRE(1000 == corpus->sentenceCount());
     REQUIRE(16882 == wordCount(*corpus));
 }
