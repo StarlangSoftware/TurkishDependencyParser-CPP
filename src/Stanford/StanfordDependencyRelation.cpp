@@ -23,11 +23,11 @@ const StanfordDependencyType StanfordDependencyRelation::stanfordDependencyTags[
                                                            StanfordDependencyType::XCOMP, StanfordDependencyType::XSUBJ};
 
 /**
- * The getDependencyTag method takes an dependency tag as string and returns the {@link StanfordDependencyType}
+ * The getDependencyTag method takes an dependency tag as string and returns the StanfordDependencyType
  * form of it.
  *
  * @param tag  Type of the dependency tag in string form
- * @return Type of the dependency in {@link StanfordDependencyType} form
+ * @return Type of the dependency in StanfordDependencyType form
  */
 StanfordDependencyType StanfordDependencyRelation::getDependencyTag(const string& tag) {
     string _tag = tag;

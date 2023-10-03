@@ -62,11 +62,11 @@ UniversalDependencyRelation::UniversalDependencyRelation(int toWord, const strin
 }
 
 /**
- * The getDependencyTag method takes an dependency tag as string and returns the {@link UniversalDependencyType}
+ * The getDependencyTag method takes an dependency tag as string and returns the UniversalDependencyType
  * form of it.
  *
  * @param tag  Type of the dependency tag in string form
- * @return Type of the dependency in {@link UniversalDependencyType} form
+ * @return Type of the dependency in UniversalDependencyType form
  */
 UniversalDependencyType UniversalDependencyRelation::getDependencyTag(const string& tag) {
     string _tag = tag;

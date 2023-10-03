@@ -15,7 +15,7 @@ TurkishDependencyTreeBankCorpus TurkishDependencyTreeBankCorpus::emptyCopy() con
 }
 
 /**
- * Another constructor for {@link TurkishDependencyTreeBankCorpus}. The method gets the corpus as an xml file, and
+ * Another constructor for TurkishDependencyTreeBankCorpus. The method gets the corpus as an xml file, and
  * reads sentences one by one. For each sentence, the function constructs a TurkishDependencyTreeBankSentence.
  * @param fileName Input file name to read the TurkishDependencyTreeBankCorpus.
  */

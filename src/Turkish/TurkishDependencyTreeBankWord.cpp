@@ -6,7 +6,7 @@
 
 /**
  * Given the parsed xml node which contains information about a word and related attributes including the
- * dependencies, the method constructs a {@link TurkishDependencyTreeBankWord} from it.
+ * dependencies, the method constructs a TurkishDependencyTreeBankWord from it.
  * @param wordNode Xml parsed node containing information about a word.
  */
 TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNode) {

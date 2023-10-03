@@ -17,11 +17,11 @@ const TurkishDependencyType TurkishDependencyRelation::turkishDependencyTags[23]
                                                                                     TurkishDependencyType::FOCUS_PARTICLE, TurkishDependencyType::EQU_ADJUNCT, TurkishDependencyType::APPOSITION};
 
 /**
- * The getDependencyTag method takes an dependency tag as string and returns the {@link TurkishDependencyType}
+ * The getDependencyTag method takes an dependency tag as string and returns the TurkishDependencyType
  * form of it.
  *
  * @param tag  Type of the dependency tag in string form
- * @return Type of the dependency in {@link TurkishDependencyType} form
+ * @return Type of the dependency in TurkishDependencyType form
  */
 TurkishDependencyType TurkishDependencyRelation::getDependencyTag(const string& tag) {
     string _tag = tag;

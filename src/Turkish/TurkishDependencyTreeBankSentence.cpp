@@ -7,7 +7,7 @@
 
 /**
  * Given the parsed xml node which contains information about a sentence, the method constructs a
- * {@link TurkishDependencyTreeBankSentence} from it.
+ * TurkishDependencyTreeBankSentence from it.
  * @param sentenceNode Xml parsed node containing information about a sentence.
  */
 TurkishDependencyTreeBankSentence::TurkishDependencyTreeBankSentence(XmlElement* sentenceNode) {
