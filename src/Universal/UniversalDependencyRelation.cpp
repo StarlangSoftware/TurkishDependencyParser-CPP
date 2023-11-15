@@ -74,7 +74,7 @@ UniversalDependencyType UniversalDependencyRelation::getDependencyTag(const stri
               _tag.end(),
               _tag.begin(),
               ::tolower);
-    for (int j = 0; j < 37; j++) {
+    for (int j = 0; j < 62; j++) {
         if (_tag == UniversalDependencyRelation::universalDependencyTypes[j]) {
             return UniversalDependencyRelation::universalDependencyTags[j];
         }
