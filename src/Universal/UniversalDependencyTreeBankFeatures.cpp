@@ -111,6 +111,14 @@ const vector<string> UniversalDependencyTreeBankFeatures::englishFeatureValues[2
         {"Word", "Digit", "Roman"}
 };
 
+/**
+ * Constructor of a UniversalDependencyTreeBankFeatures object. Given the language of the word and features of the
+ * word as a string, the method splits the features with respect to pipe character. Then for each feature type and
+ * value pair, their values and types are inserted into the featureList hash map. The method also check for validity
+ * of the feature values for that feature type.
+ * @param language Language name. Currently, 'en' and 'tr' languages are supported.
+ * @param features Feature string.
+ */
 UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(const string &language,
                                                                          const string &features) {
     if (features != "_") {
@@ -131,10 +139,19 @@ UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(const s
     }
 }
 
+/**
+ * Gets the value of a given feature.
+ * @param feature Name of the feature
+ * @return Value of the feature
+ */
 string UniversalDependencyTreeBankFeatures::getFeatureValue(const string &feature) const {
     return featureList.at(feature);
 }
 
+/**
+ * Overridden toString method. Returns feature with their values separated with pipe characters.
+ * @return A string of feature values and their names separated with pipe character.
+ */
 string UniversalDependencyTreeBankFeatures::to_string() const {
     if (featureList.empty()) {
         return "_";
@@ -150,10 +167,22 @@ string UniversalDependencyTreeBankFeatures::to_string() const {
     return result;
 }
 
+/**
+ * Checks if the given feature exists in the feature list.
+ * @param feature Name of the feature
+ * @return True, if the feature list contains the feature, false otherwise.
+ */
 bool UniversalDependencyTreeBankFeatures::featureExists(const string &feature) const {
     return featureList.contains(feature);
 }
 
+/**
+ * Returns the index of the universal feature type in the universalFeatureTypes array, given the name of the feature
+ * type.
+ * @param featureName Name of the feature type
+ * @return Index of the universal feature type in the universalFeatureTypes array. If the name does not exist, the
+ * function returns -1.
+ */
 int UniversalDependencyTreeBankFeatures::featureIndex(const string& featureName) {
     string tmpName = featureName;
     if (featureName.find('[') != string::npos){
@@ -167,6 +196,13 @@ int UniversalDependencyTreeBankFeatures::featureIndex(const string& featureName)
     return -1;
 }
 
+/**
+ * Returns the index of the universal dependency type in the universalDependencyTypes array, given the name of the
+ * universal dependency type.
+ * @param universalDependency Universal dependency type
+ * @return Index of the universal dependency type in the universalDependencyTypes array. If the name does not exist,
+ * the function returns -1.
+ */
 int UniversalDependencyTreeBankFeatures::dependencyIndex(const string &universalDependency) {
     int index = 0;
     for (const auto& dependency : UniversalDependencyRelation::universalDependencyTypes){
@@ -178,6 +214,12 @@ int UniversalDependencyTreeBankFeatures::dependencyIndex(const string &universal
     return -1;
 }
 
+/**
+ * Returns the number of distinct values for a feature in a given language
+ * @param language Language name. Currently, 'en' and 'tr' languages are supported.
+ * @param featureName Name of the feature type.
+ * @return The number of distinct values for a feature in a given language
+ */
 int UniversalDependencyTreeBankFeatures::numberOfValues(const string& language, const string& featureName) {
     int index = featureIndex(featureName);
     if (index != -1) {
@@ -192,6 +234,15 @@ int UniversalDependencyTreeBankFeatures::numberOfValues(const string& language, 
     return -1;
 }
 
+/**
+ * Returns the index of the given value in the feature value array for the given feature in the given
+ * language.
+ * @param language Language name. Currently, 'en' and 'tr' languages are supported.
+ * @param featureName Name of the feature.
+ * @param featureValue Value of the feature.
+ * @return The index of the given feature value in the feature value array for the given feature in the given
+ * language.
+ */
 int UniversalDependencyTreeBankFeatures::featureValueIndex(const string &language, const string &featureName,
                                                            const string &featureValue) {
     vector<string> *searchArray;
@@ -233,6 +284,11 @@ UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(Univers
     }
 }
 
+/**
+ * Returns the index of the given universal dependency pos.
+ * @param uPos Given universal dependency part of speech tag.
+ * @return The index of the universal dependency pos.
+ */
 int UniversalDependencyTreeBankFeatures::posIndex(const string &uPos) {
     int index = 0;
     for (const string& posType : UniversalDependencyRelation::universalDependencyPosTypes){

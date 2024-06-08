@@ -4,8 +4,18 @@
 
 #include "UniversalDependencyTreeBankWord.h"
 
-#include <utility>
-
+/**
+ * Constructor of the universal dependency word. Sets the attributes.
+ * @param id Id of the word
+ * @param name Name of the word
+ * @param lemma Lemma of the word
+ * @param upos Universal part of speech tag.
+ * @param xpos Extra part of speech tag
+ * @param features Feature list of the word
+ * @param relation Universal dependency relation of the word
+ * @param deps External dependencies for the word
+ * @param misc Miscellaneous information for the word.
+ */
 UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord(int id, const string& name, const string& lemma, UniversalDependencyPosType upos,
                                                                  const string& xpos,
                                                                  UniversalDependencyTreeBankFeatures* features,
@@ -21,38 +31,75 @@ UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord(int id, const s
     this->misc = misc;
 }
 
+/**
+ * Accessor for the id attribute.
+ * @return Id attribute
+ */
 int UniversalDependencyTreeBankWord::getId() const{
     return id;
 }
 
+/**
+ * Accessor for the lemma attribute
+ * @return Lemma attribute
+ */
 string UniversalDependencyTreeBankWord::getLemma() const{
     return lemma;
 }
 
+/**
+ * Accessor for the upos attribute
+ * @return Upos attribute
+ */
 UniversalDependencyPosType UniversalDependencyTreeBankWord::getUpos() const{
     return upos;
 }
 
+/**
+ * Accessor for the xpos attribute
+ * @return Xpos attribute
+ */
 string UniversalDependencyTreeBankWord::getXpos() const{
     return xpos;
 }
 
+/**
+ * Accessor for the features attribute
+ * @return Features attribute
+ */
 UniversalDependencyTreeBankFeatures* UniversalDependencyTreeBankWord::getFeatures() const{
     return features;
 }
 
+/**
+ * Gets the value of a given feature.
+ * @param featureName Name of the feature
+ * @return Value of the feature
+ */
 string UniversalDependencyTreeBankWord::getFeatureValue(const string& featureName) const{
     return features->getFeatureValue(featureName);
 }
 
+/**
+ * Accessor for the relation attribute.
+ * @return Relation attribute
+ */
 UniversalDependencyRelation* UniversalDependencyTreeBankWord::getRelation() const{
     return relation;
 }
 
+/**
+ * Accessor for the deps attribute
+ * @return Xpos attribute
+ */
 string UniversalDependencyTreeBankWord::getDeps() const{
     return deps;
 }
 
+/**
+ * Accessor for the misc attribute
+ * @return Xpos attribute
+ */
 string UniversalDependencyTreeBankWord::getMisc() const{
     return misc;
 }
@@ -68,6 +115,11 @@ UniversalDependencyTreeBankWord::~UniversalDependencyTreeBankWord() {
     delete relation;
 }
 
+/**
+ * Checks if the given feature exists.
+ * @param featureName Name of the feature
+ * @return True if the given feature exists, false otherwise.
+ */
 bool UniversalDependencyTreeBankWord::featureExists(const string& featureName) const{
     return features->featureExists(featureName);
 }
@@ -83,6 +135,10 @@ UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord() : Word("root"
     this->relation = new UniversalDependencyRelation(-1, "DEP");
 }
 
+/**
+ * Mutator for the relation attribute
+ * @param relation New relation attribute
+ */
 void UniversalDependencyTreeBankWord::setRelation(UniversalDependencyRelation* _relation) {
     this->relation = _relation;
 }

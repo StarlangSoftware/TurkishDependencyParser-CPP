@@ -8,10 +8,20 @@
 #include "UniversalDependencyTreeBankSentence.h"
 #include "UniversalDependencyTreeBankWord.h"
 
+/**
+ * Empty constructor for the UniversalDependencyTreeBankSentence. Initializes comments.
+ */
 UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence() : Sentence(){
 
 }
 
+/**
+ * Constructor for the UniversalDependencyTreeBankSentence.  Get a line as input and splits the line wrt tab
+ * character. The number of items should be 10. The items are id, surfaceForm, lemma, upos, xpos, feature list,
+ * head word index, dependency type, external dependencies and miscellaneous things for one word.
+ * @param language Language name. Currently, 'en' and 'tr' languages are supported.
+ * @param sentence Sentence string to be processed.
+ */
 UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const string& language, const string& sentence) : Sentence(){
     UniversalDependencyRelation* relation;
     vector<string> lines = Word::split(sentence, "\n");
@@ -52,10 +62,18 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const s
     }
 }
 
+/**
+ * Adds a comment string to comments array list.
+ * @param comment Comment to be added.
+ */
 void UniversalDependencyTreeBankSentence::addComment(const string& comment) {
     comments.emplace_back(comment);
 }
 
+/**
+ * Overridden toString method. Concatenates the strings of words to get the string of a sentence.
+ * @return Concatenation of the strings of thw strings of words.
+ */
 string UniversalDependencyTreeBankSentence::to_string() const{
     string result;
     for (const string& comment : comments){
@@ -68,6 +86,12 @@ string UniversalDependencyTreeBankSentence::to_string() const{
     return result;
 }
 
+/**
+ * Compares the sentence with the given sentence and returns a parser evaluation score for this comparison. The result
+ * is calculated by summing up the parser evaluation scores of word by word dpendency relation comparisons.
+ * @param sentence Universal dependency sentence to be compared.
+ * @return A parser evaluation score object.
+ */
 ParserEvaluationScore
 UniversalDependencyTreeBankSentence::compareParses(UniversalDependencyTreeBankSentence *sentence) const{
     ParserEvaluationScore score = ParserEvaluationScore();
