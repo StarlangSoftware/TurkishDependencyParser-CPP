@@ -52,10 +52,10 @@ const vector<string> UniversalDependencyTreeBankFeatures::turkishFeatureValues[2
         {"Card", "Dist", "Ord"},
         {},
         {"Yes"},
-        {},
+        {"Yes"},
 
         {"Yes"},
-        {},
+        {"Yes"},
         {},
         {},
         {},
@@ -74,7 +74,7 @@ const vector<string> UniversalDependencyTreeBankFeatures::turkishFeatureValues[2
 
         {"Neg",  "Pos"},
         {"1",    "2",    "3"},
-        {},
+        {"Form", "Infm"},
         {},
         {}
 };
