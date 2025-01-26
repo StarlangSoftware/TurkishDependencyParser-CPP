@@ -6,6 +6,9 @@
 #include <iostream>
 #include <regex>
 #include "UniversalDependencyTreeBankSentence.h"
+
+#include <StringUtils.h>
+
 #include "UniversalDependencyTreeBankWord.h"
 
 /**
@@ -24,15 +27,15 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence() : Sen
  */
 UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const string& language, const string& sentence) : Sentence(){
     UniversalDependencyRelation* relation;
-    vector<string> lines = Word::split(sentence, "\n");
+    vector<string> lines = StringUtils::split(sentence, "\n");
     for (const string& line : lines){
         if (line.empty()){
             continue;
         }
-        if (Word::startsWith(line, "#")){
-            addComment(Word::trim(line));
+        if (StringUtils::startsWith(line, "#")){
+            addComment(StringUtils::trim(line));
         } else {
-            vector<string> items = Word::split(line, "\t");
+            vector<string> items = StringUtils::split(line, "\t");
             if (items.size() != 10){
                 cout << "Line does not contain 10 items ->" << line;
             } else {

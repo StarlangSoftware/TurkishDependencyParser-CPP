@@ -3,6 +3,7 @@
 //
 
 #include "TurkishDependencyTreeBankWord.h"
+#include "StringUtils.h"
 
 /**
  * Given the parsed xml node which contains information about a word and related attributes including the
@@ -21,20 +22,20 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
         if (!wordNode->getAttributeValue("REL").empty()){
             relationName = wordNode->getAttributeValue("REL");
             if (relationName != "[,( )]"){
-                vector<string> relationParts = Word::split(relationName, ",[]()");
+                vector<string> relationParts = StringUtils::split(relationName, ",[]()");
                 index = 0;
-                for (int i = 0; i < relationParts.size(); i++){
-                    if (!relationParts.at(i).empty()){
+                for (const auto & relationPart : relationParts){
+                    if (!relationPart.empty()){
                         index++;
                         switch (index){
                             case 1:
-                                toWord = stoi(relationParts[i]);
+                                toWord = stoi(relationPart);
                                 break;
                             case 2:
-                                toIG = stoi(relationParts[i]);
+                                toIG = stoi(relationPart);
                                 break;
                             case 3:
-                                dependencyType = relationParts[i];
+                                dependencyType = relationPart;
                                 relation = TurkishDependencyRelation(toWord - 1, toIG - 1, dependencyType);
                                 break;
                         }
@@ -45,7 +46,7 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
         for (int i = 1; i <= 9; i++){
             if (!wordNode->getAttributeValue("ORG_IG" + std::to_string(i)).empty()){
                 IG = wordNode->getAttributeValue("ORG_IG" + std::to_string(i));
-                originalParses.emplace_back(MorphologicalParse(splitIntoInflectionalGroups(IG)));
+                originalParses.emplace_back(splitIntoInflectionalGroups(IG));
             }
         }
     }
@@ -59,13 +60,12 @@ TurkishDependencyTreeBankWord::TurkishDependencyTreeBankWord(XmlElement* wordNod
 vector<string> TurkishDependencyTreeBankWord::splitIntoInflectionalGroups(const string& IG) {
     vector<string> inflectionalGroups;
     string ig;
-    ig = Word::replaceAll(IG, "(+Punc", "@");
-    ig = Word::replaceAll(ig, ")+Punc", "$");
-    vector<string> iGs = Word::split(ig, "[()]");
-    for (int i = 0; i < iGs.size(); i++){
-        string IGI = iGs[i];
-        IGI = Word::replaceAll(IGI, "@", "(+Punc");
-        IGI = Word::replaceAll(IGI, "$", ")+Punc");
+    ig = StringUtils::replaceAll(IG, "(+Punc", "@");
+    ig = StringUtils::replaceAll(ig, ")+Punc", "$");
+    vector<string> iGs = StringUtils::split(ig, "[()]");
+    for (auto IGI : iGs){
+        IGI = StringUtils::replaceAll(IGI, "@", "(+Punc");
+        IGI = StringUtils::replaceAll(IGI, "$", ")+Punc");
         if (!IGI.empty()){
             inflectionalGroups.emplace_back(IGI);
         }

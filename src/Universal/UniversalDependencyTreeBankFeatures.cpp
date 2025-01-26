@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Dictionary/Word.h"
 #include "UniversalDependencyTreeBankFeatures.h"
+#include <StringUtils.h>
 #include "UniversalDependencyRelation.h"
 
 const string UniversalDependencyTreeBankFeatures::universalFeatureTypes[25] =
@@ -122,7 +123,7 @@ const vector<string> UniversalDependencyTreeBankFeatures::englishFeatureValues[2
 UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(const string &language,
                                                                          const string &features) {
     if (features != "_") {
-        vector<string> list = Word::split(features, "|");
+        vector<string> list = StringUtils::split(features, "|");
         for (const string &feature: list) {
             if (feature.find_first_of('=') != -1) {
                 string featureName = feature.substr(0, feature.find_first_of('='));
@@ -271,7 +272,7 @@ int UniversalDependencyTreeBankFeatures::featureValueIndex(const string &languag
 UniversalDependencyTreeBankFeatures::UniversalDependencyTreeBankFeatures(UniversalDependencyTreeBankFeatures &copy) {
     string features = copy.to_string();
     if (features != "_") {
-        vector<string> list = Word::split(features, "|");
+        vector<string> list = StringUtils::split(features, "|");
         for (const string &feature: list) {
             if (feature.find_first_of('=') != -1) {
                 string featureName = feature.substr(0, feature.find_first_of('=') - 1);
