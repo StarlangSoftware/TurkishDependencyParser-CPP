@@ -39,12 +39,12 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const s
             if (items.size() != 10){
                 cout << "Line does not contain 10 items ->" << line;
             } else {
-                string id = items[0];
+                const string& id = items[0];
                 if (regex_match(id, regex("\\d+"))){
-                    string surfaceForm = items[1];
-                    string lemma = items[2];
+                    const string& surfaceForm = items[1];
+                    const string& lemma = items[2];
                     UniversalDependencyPosType upos = UniversalDependencyRelation::getDependencyPosType(items[3]);
-                    string xpos = items[4];
+                    const string& xpos = items[4];
                     auto* features = new UniversalDependencyTreeBankFeatures(language, items[5]);
                     if (items[6] != "_"){
                         int to = stoi(items[6]);
@@ -54,11 +54,15 @@ UniversalDependencyTreeBankSentence::UniversalDependencyTreeBankSentence(const s
                     } else {
                         relation = nullptr;
                     }
-                    string deps = items[8];
-                    string misc = items[9];
+                    const string& deps = items[8];
+                    const string& misc = items[9];
                     auto* word = new UniversalDependencyTreeBankWord(stoi(id), surfaceForm,
                                                                      lemma, upos, xpos, features, relation, deps, misc);
                     addWord(word);
+                } else {
+                    if (regex_match(id, regex("\\d+-\\d+"))) {
+                        splits.emplace_back(id);
+                    }
                 }
             }
         }
@@ -106,4 +110,21 @@ UniversalDependencyTreeBankSentence::compareParses(UniversalDependencyTreeBankSe
         }
     }
     return score;
+}
+
+/**
+ * Returns number of splits in the sentence
+ * @return Number of splits in the sentence
+ */
+int UniversalDependencyTreeBankSentence::splitSize() const {
+    return splits.size();
+}
+
+/**
+ * Returns the split at position index
+ * @param index Position
+ * @return The split at position index
+ */
+string UniversalDependencyTreeBankSentence::getSplit(int index) const {
+    return splits[index];
 }

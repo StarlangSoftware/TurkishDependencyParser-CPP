@@ -15,11 +15,14 @@ using namespace std;
 class UniversalDependencyTreeBankSentence : public Sentence{
 private:
     vector<string> comments;
+    vector<string> splits;
 public:
     UniversalDependencyTreeBankSentence();
     UniversalDependencyTreeBankSentence(const string& language, const string& sentence);
     void addComment(const string& comment);
     ParserEvaluationScore compareParses(UniversalDependencyTreeBankSentence* sentence) const;
+    int splitSize() const;
+    string getSplit(int index) const;
     string to_string() const;
 };
 

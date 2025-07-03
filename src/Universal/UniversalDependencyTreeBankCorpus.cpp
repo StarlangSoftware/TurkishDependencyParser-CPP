@@ -50,6 +50,4 @@ ParserEvaluationScore UniversalDependencyTreeBankCorpus::compareParses(const Uni
     return score;
 }
 
-UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus() {
-
-}
+UniversalDependencyTreeBankCorpus::UniversalDependencyTreeBankCorpus() = default;

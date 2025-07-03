@@ -137,7 +137,7 @@ UniversalDependencyTreeBankWord::UniversalDependencyTreeBankWord() : Word("root"
 
 /**
  * Mutator for the relation attribute
- * @param relation New relation attribute
+ * @param _relation New relation attribute
  */
 void UniversalDependencyTreeBankWord::setRelation(UniversalDependencyRelation* _relation) {
     this->relation = _relation;
