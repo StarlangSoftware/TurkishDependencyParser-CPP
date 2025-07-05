@@ -30,21 +30,21 @@ TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus1") {
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus2") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst-ud-dev.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst2-ud-dev.conllu");
     REQUIRE(1100 == corpus->sentenceCount());
     REQUIRE(10542 == wordCount(*corpus));
     REQUIRE(279 == splitCount(*corpus));
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus3") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst-ud-test.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst2-ud-test.conllu");
     REQUIRE(1100 == corpus->sentenceCount());
     REQUIRE(10032 == wordCount(*corpus));
     REQUIRE(278 == splitCount(*corpus));
 }
 
 TEST_CASE("UniversalDependencyTreeBankCorpusTest-testDependencyCorpus4") {
-    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst-ud-train.conllu");
+    auto* corpus = new UniversalDependencyTreeBankCorpus("tr_imst2-ud-train.conllu");
     REQUIRE(3435 == corpus->sentenceCount());
     REQUIRE(37522 == wordCount(*corpus));
     REQUIRE(1082 == splitCount(*corpus));
