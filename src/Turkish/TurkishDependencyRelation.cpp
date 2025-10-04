@@ -4,6 +4,8 @@
 
 #include "TurkishDependencyRelation.h"
 
+#include <algorithm>
+
 const string TurkishDependencyRelation::turkishDependencyTypes[23] = {"VOCATIVE", "SUBJECT", "DATIVE.ADJUNCT", "OBJECT", "POSSESSOR",
                                            "MODIFIER", "S.MODIFIER", "ABLATIVE.ADJUNCT", "DETERMINER", "SENTENCE",
                                            "CLASSIFIER", "LOCATIVE.ADJUNCT", "COORDINATION", "QUESTION.PARTICLE", "INTENSIFIER",

@@ -3,6 +3,9 @@
 //
 
 #include "UniversalDependencyRelation.h"
+
+#include <algorithm>
+
 #include "UniversalDependencyPosType.h"
 
 const string UniversalDependencyRelation::universalDependencyTypes[62] = {"acl", "advcl",

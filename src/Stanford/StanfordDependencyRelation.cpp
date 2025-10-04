@@ -4,6 +4,8 @@
 
 #include "StanfordDependencyRelation.h"
 
+#include <algorithm>
+
 const string StanfordDependencyRelation::stanfordDependencyTypes[49] = {"acomp", "advcl", "advmod", "agent", "amod", "appos", "aux",
                                                         "auxpass", "cc", "ccomp", "conj", "cop", "csubj", "csubjpass", "dep", "det", "discourse", "dobj", "expl", "goeswith",
                                                         "iobj", "mark", "mwe", "neg", "nn", "npadvmod", "nsubj", "nsubjpass", "num", "number", "parataxis", "pcomp",
@@ -34,7 +36,7 @@ StanfordDependencyType StanfordDependencyRelation::getDependencyTag(const string
     transform(_tag.begin(),
               _tag.end(),
               _tag.begin(),
-              tolower);
+              ::tolower);
     for (int j = 0; j < 49; j++) {
         if (_tag == StanfordDependencyRelation::stanfordDependencyTypes[j]) {
             return StanfordDependencyRelation::stanfordDependencyTags[j];
