@@ -8,7 +8,7 @@
 
 #include "UniversalDependencyPosType.h"
 
-const string UniversalDependencyRelation::universalDependencyTypes[62] = {"acl", "advcl",
+const string UniversalDependencyRelation::universalDependencyTypes[63] = {"acl", "advcl",
                                                                           "advmod", "amod", "appos", "aux", "case",
                                                                           "cc", "ccomp", "clf", "compound", "conj",
                                                                           "cop", "csubj", "dep", "det", "discourse",
@@ -22,9 +22,9 @@ const string UniversalDependencyRelation::universalDependencyTypes[62] = {"acl",
                                                                           "nmod:tmod", "avdmod:emph", "aux:q", "compound:lvc",
                                                                           "compound:redup", "csubj:cop", "nmod:comp", "nmod:part",
                                                                           "nsubj:cop", "obl:agent", "obl:tmod", "obl:npmod", "nsubj:outer",
-                                                                          "csubj:outer", "advcl:relcl"};
+                                                                          "csubj:outer", "advcl:relcl", "obl:unmarked"};
 
-const UniversalDependencyType UniversalDependencyRelation::universalDependencyTags[62] = {UniversalDependencyType::ACL, UniversalDependencyType::ADVCL,
+const UniversalDependencyType UniversalDependencyRelation::universalDependencyTags[63] = {UniversalDependencyType::ACL, UniversalDependencyType::ADVCL,
                                                                                           UniversalDependencyType::ADVMOD, UniversalDependencyType::AMOD, UniversalDependencyType::APPOS, UniversalDependencyType::AUX, UniversalDependencyType::CASE,
                                                                                           UniversalDependencyType::CC, UniversalDependencyType::CCOMP, UniversalDependencyType::CLF, UniversalDependencyType::COMPOUND, UniversalDependencyType::CONJ,
                                                                                           UniversalDependencyType::COP, UniversalDependencyType::CSUBJ, UniversalDependencyType::DEP, UniversalDependencyType::DET, UniversalDependencyType::DISCOURSE,
@@ -38,7 +38,7 @@ const UniversalDependencyType UniversalDependencyRelation::universalDependencyTa
                                                                                           UniversalDependencyType::NMOD_TMOD, UniversalDependencyType::ADVMOD_EMPH, UniversalDependencyType::AUX_Q, UniversalDependencyType::COMPOUND_LVC,
                                                                                           UniversalDependencyType::COMPOUND_REDUP, UniversalDependencyType::CSUBJ_COP, UniversalDependencyType::NMOD_COMP, UniversalDependencyType::NMOD_PART,UniversalDependencyType::NSUBJ_COP,
                                                                                           UniversalDependencyType::OBL_AGENT, UniversalDependencyType::OBL_TMOD, UniversalDependencyType::OBL_NPMOD, UniversalDependencyType::NSUBJ_OUTER,
-                                                                                          UniversalDependencyType::CSUBJ_OUTER, UniversalDependencyType::ADVCL_RELCL};
+                                                                                          UniversalDependencyType::CSUBJ_OUTER, UniversalDependencyType::ADVCL_RELCL, UniversalDependencyType::OBL_UNMARKED};
 
 const string UniversalDependencyRelation::universalDependencyPosTypes[17] = {"ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB", "ADP", "AUX", "CCONJ",
                                                             "DET", "NUM", "PART", "PRON", "SCONJ", "PUNCT", "SYM", "X"};
@@ -77,7 +77,7 @@ UniversalDependencyType UniversalDependencyRelation::getDependencyTag(const stri
               _tag.end(),
               _tag.begin(),
               ::tolower);
-    for (int j = 0; j < 62; j++) {
+    for (int j = 0; j < 63; j++) {
         if (_tag == UniversalDependencyRelation::universalDependencyTypes[j]) {
             return UniversalDependencyRelation::universalDependencyTags[j];
         }
