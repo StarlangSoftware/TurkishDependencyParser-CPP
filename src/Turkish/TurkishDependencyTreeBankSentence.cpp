@@ -10,7 +10,7 @@
  * TurkishDependencyTreeBankSentence from it.
  * @param sentenceNode Xml parsed node containing information about a sentence.
  */
-TurkishDependencyTreeBankSentence::TurkishDependencyTreeBankSentence(XmlElement* sentenceNode) {
+TurkishDependencyTreeBankSentence::TurkishDependencyTreeBankSentence(const XmlElement* sentenceNode) {
     XmlElement* wordNode;
     TurkishDependencyTreeBankWord* word;
     wordNode = sentenceNode->getFirstChild();

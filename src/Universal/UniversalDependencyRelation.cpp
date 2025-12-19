@@ -73,10 +73,9 @@ UniversalDependencyRelation::UniversalDependencyRelation(int toWord, const strin
  */
 UniversalDependencyType UniversalDependencyRelation::getDependencyTag(const string& tag) {
     string _tag = tag;
-    transform(_tag.begin(),
-              _tag.end(),
-              _tag.begin(),
-              ::tolower);
+    ranges::transform(_tag,
+                      _tag.begin(),
+                      ::tolower);
     for (int j = 0; j < 63; j++) {
         if (_tag == UniversalDependencyRelation::universalDependencyTypes[j]) {
             return UniversalDependencyRelation::universalDependencyTags[j];
@@ -92,10 +91,9 @@ UniversalDependencyType UniversalDependencyRelation::getDependencyTag(const stri
  */
 UniversalDependencyPosType UniversalDependencyRelation::getDependencyPosType(const string& tag){
     string _tag = tag;
-    transform(_tag.begin(),
-                   _tag.end(),
-                   _tag.begin(),
-                   ::toupper);
+    ranges::transform(_tag,
+                      _tag.begin(),
+                      ::toupper);
     for (int i = 0; i < 17; i++) {
         if (_tag == universalDependencyPosTypes[i]) {
             return universalDependencyPosTags[i];
@@ -121,7 +119,7 @@ string UniversalDependencyRelation::to_string(UniversalDependencyPosType posType
  * otherwise, (ii) UAS = 1, if to is the same; UAS = 0, otherwise, (iii) LS = 1, if dependency types are the same;
  * LS = 0, otherwise.
  */
-ParserEvaluationScore UniversalDependencyRelation::compareRelations(UniversalDependencyRelation* relation) const{
+ParserEvaluationScore UniversalDependencyRelation::compareRelations(const UniversalDependencyRelation* relation) const{
     double LS = 0.0, LAS = 0.0, UAS = 0.0;
     if (to_string() == relation->to_string()){
         LS = 1.0;
@@ -135,11 +133,10 @@ ParserEvaluationScore UniversalDependencyRelation::compareRelations(UniversalDep
     return {LAS, UAS, LS, 1};
 }
 
-UniversalDependencyRelation::UniversalDependencyRelation() {
-
+UniversalDependencyRelation::UniversalDependencyRelation() : universalDependencyType() {
 }
 
-UniversalDependencyRelation::UniversalDependencyRelation(UniversalDependencyRelation& copy) {
+UniversalDependencyRelation::UniversalDependencyRelation(const UniversalDependencyRelation& copy)  : DependencyRelation(copy) {
     this->toWord = copy.toWord;
     this->universalDependencyType = copy.universalDependencyType;
 }

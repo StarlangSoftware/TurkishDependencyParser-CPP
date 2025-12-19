@@ -6,7 +6,7 @@
 #define DEPENDENCYPARSER_UNIVERSALDEPENDENCYTREEBANKWORD_H
 
 
-#include "Dictionary/Word.h"
+#include <Dictionary/Word.h>
 #include "UniversalDependencyPosType.h"
 #include "UniversalDependencyTreeBankFeatures.h"
 #include "UniversalDependencyRelation.h"

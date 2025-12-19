@@ -15,10 +15,10 @@ private:
 public:
     ParserEvaluationScore();
     ParserEvaluationScore(double LAS, double UAS, double LS, int wordCount);
-    double getLAS() const;
-    double getUAS() const;
-    double getLS() const;
-    int getWordCount() const;
+    [[nodiscard]] double getLAS() const;
+    [[nodiscard]] double getUAS() const;
+    [[nodiscard]] double getLS() const;
+    [[nodiscard]] int getWordCount() const;
     void add(const ParserEvaluationScore& parserEvaluationScore);
 };
 

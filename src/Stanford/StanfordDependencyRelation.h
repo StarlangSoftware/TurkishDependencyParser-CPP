@@ -20,7 +20,7 @@ public:
     static const StanfordDependencyType stanfordDependencyTags[49];
     static StanfordDependencyType getDependencyTag(const string& tag);
     StanfordDependencyRelation(int toWord, const string& dependencyType);
-    string to_string() const;
+    [[nodiscard]] string to_string() const;
 };
 
 

@@ -12,7 +12,7 @@ protected:
     explicit DependencyRelation(int toWord);
 public:
     DependencyRelation() = default;
-    int to() const;
+    [[nodiscard]] int to() const;
 };
 
 

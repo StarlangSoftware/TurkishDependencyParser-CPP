@@ -27,10 +27,9 @@ const TurkishDependencyType TurkishDependencyRelation::turkishDependencyTags[23]
  */
 TurkishDependencyType TurkishDependencyRelation::getDependencyTag(const string& tag) {
     string _tag = tag;
-    transform(_tag.begin(),
-              _tag.end(),
-              _tag.begin(),
-              ::toupper);
+    ranges::transform(_tag,
+                      _tag.begin(),
+                      ::toupper);
     for (int j = 0; j < 23; j++) {
         if (_tag == TurkishDependencyRelation::turkishDependencyTypes[j]) {
             return TurkishDependencyRelation::turkishDependencyTags[j];

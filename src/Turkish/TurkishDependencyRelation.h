@@ -21,9 +21,9 @@ public:
     static TurkishDependencyType getDependencyTag(const string& tag);
     TurkishDependencyRelation() = default;
     TurkishDependencyRelation(int toWord, int toIG, const string& dependencyType);
-    int getToIG() const;
-    TurkishDependencyType getTurkishDependencyType() const;
-    string to_string() const;
+    [[nodiscard]] int getToIG() const;
+    [[nodiscard]] TurkishDependencyType getTurkishDependencyType() const;
+    [[nodiscard]] string to_string() const;
 };
 
 

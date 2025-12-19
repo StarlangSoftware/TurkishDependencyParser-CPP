@@ -18,10 +18,10 @@ private:
 public:
     explicit TurkishDependencyTreeBankWord(XmlElement* wordNode);
     vector<string> splitIntoInflectionalGroups(const string& IG);
-    MorphologicalParse getParse() const;
-    MorphologicalParse getOriginalParse(int index) const;
-    int size() const;
-    TurkishDependencyRelation getRelation() const;
+    [[nodiscard]] MorphologicalParse getParse() const;
+    [[nodiscard]] MorphologicalParse getOriginalParse(int index) const;
+    [[nodiscard]] int size() const;
+    [[nodiscard]] TurkishDependencyRelation getRelation() const;
 };
 
 

@@ -33,10 +33,9 @@ const StanfordDependencyType StanfordDependencyRelation::stanfordDependencyTags[
  */
 StanfordDependencyType StanfordDependencyRelation::getDependencyTag(const string& tag) {
     string _tag = tag;
-    transform(_tag.begin(),
-              _tag.end(),
-              _tag.begin(),
-              ::tolower);
+    ranges::transform(_tag,
+                      _tag.begin(),
+                      ::tolower);
     for (int j = 0; j < 49; j++) {
         if (_tag == StanfordDependencyRelation::stanfordDependencyTypes[j]) {
             return StanfordDependencyRelation::stanfordDependencyTags[j];
